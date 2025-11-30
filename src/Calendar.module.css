@@ -1,11 +1,7 @@
 .calendar {
   display: grid;
-  grid-template-rows: min-content 1fr;
+  grid-template-rows: var(--height-row) 1fr;
   height: 100%;
-  font-style: normal;
-  font-weight: 300;
-  font-family: 'Inter Tight', sans-serif;
-  font-optical-sizing: auto;
 
   & > header {
     display: flex;
@@ -99,7 +95,7 @@
 
 .log {
   display: grid;
-  grid-template-rows: 30px 1fr;
+  grid-template-rows: var(--height-row) 1fr;
 
   & > h4 {
     display: flex;
@@ -111,7 +107,6 @@
 
   & > textarea {
     margin-inline: 5px;
-    margin-block-end: 5px;
     border-radius: 0px;
     padding: 5px;
     font-family: 'Space Mono', monospace;

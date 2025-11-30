@@ -1,0 +1,18 @@
+.page {
+  display: grid;
+  grid-template-rows: 1fr var(--height-row);
+  height: 100vh;
+}
+
+.navigation {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
+
+  & > a {
+    text-decoration: none;
+    font-weight: 600;
+    color: black;
+  }
+}

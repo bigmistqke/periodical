@@ -20,7 +20,7 @@ export function Calendar() {
   createEffect(() => console.log('focusedDay', focusedDay(), value()))
 
   return (
-    <div style={{ display: 'grid', 'grid-template-rows': '1fr 1fr', height: '100vh' }}>
+    <div style={{ display: 'grid', 'grid-template-rows': '1fr 1fr' }}>
       <CorvuCalendar
         mode="single"
         onFocusedDayChange={setFocusedDay}
