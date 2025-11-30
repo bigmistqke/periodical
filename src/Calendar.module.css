@@ -1,7 +1,14 @@
+.calendarContainer {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  overflow: hidden;
+}
+
 .calendar {
   display: grid;
   grid-template-rows: var(--height-row) 1fr;
   height: 100%;
+  overflow: hidden;
 
   & > header {
     display: flex;
@@ -96,6 +103,7 @@
 .log {
   display: grid;
   grid-template-rows: var(--height-row) 1fr;
+  overflow: hidden;
 
   & > h4 {
     display: flex;
@@ -105,15 +113,44 @@
     font-family: 'Inter Tight', sans-serif;
   }
 
-  & > textarea {
-    margin-inline: 5px;
-    border-radius: 0px;
-    padding: 5px;
-    font-family: 'Space Mono', monospace;
+  & > .textareaContainer {
+    overflow-y: auto;
+    box-sizing: border-box;
+    margin-inline: var(--margin);
+    border: 1px solid black;
+    display: grid;
 
-    &:focus-visible {
-      outline: none;
-      border: 1px solid var(--color-border-focus-visible);
+    & > textarea {
+      --line-height: 21pt;
+      --line-color: rgb(132, 132, 132);
+
+      box-sizing: border-box;
+      padding-block: 0px;
+      padding-inline: var(--margin);
+      border-radius: 0px;
+      display: block;
+      font-size: 12pt;
+      line-height: var(--line-height);
+      width: 100%;
+      color: black;
+      overflow: hidden;
+      background-image: linear-gradient(
+        to bottom,
+        transparent,
+        transparent calc(var(--line-height) - 1px),
+        var(--line-color) 0
+      );
+      background-size: 100% var(--line-height);
+      background-repeat: repeat-y;
+      background-color: white;
+      border: none;
+      resize: none;
+      font-family: 'Space Mono', monospace;
+      scrollbar-gutter: stable both-edges;
+
+      &:focus-visible {
+        outline: none;
+      }
     }
   }
 }

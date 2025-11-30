@@ -20,6 +20,7 @@
     "@corvu/calendar": "^0.1.2",
     "@solidjs/router": "^0.15.4",
     "solid-icons": "^1.1.0",
-    "solid-js": "^1.9.5"
+    "solid-js": "^1.9.5",
+    "solid-textarea-autosize": "^0.0.5"
   }
 }

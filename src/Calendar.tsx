@@ -1,7 +1,9 @@
 import CorvuCalendar from '@corvu/calendar'
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'solid-icons/ai'
-import { createEffect, createSignal, Index } from 'solid-js'
+import { createSignal, Index } from 'solid-js'
+import TextareaAutosize from 'solid-textarea-autosize'
 import styles from './Calendar.module.css'
+import theme from './Theme.module.css'
 
 const { format: formatWeekdayLong } = new Intl.DateTimeFormat('en', {
   weekday: 'long',
@@ -17,10 +19,8 @@ export function Calendar() {
   const [focusedDay, setFocusedDay] = createSignal<Date>()
   const [value, setValue] = createSignal<Date>(new Date())
 
-  createEffect(() => console.log('focusedDay', focusedDay(), value()))
-
   return (
-    <div style={{ display: 'grid', 'grid-template-rows': '1fr 1fr' }}>
+    <div class={styles.calendarContainer}>
       <CorvuCalendar
         mode="single"
         onFocusedDayChange={setFocusedDay}
@@ -34,7 +34,7 @@ export function Calendar() {
               <CorvuCalendar.Nav action="prev-month" aria-label="Go to previous month">
                 <AiOutlineArrowLeft size={16} />
               </CorvuCalendar.Nav>
-              <CorvuCalendar.Label>
+              <CorvuCalendar.Label class={theme.title}>
                 {formatMonth(props.month)} {props.month.getFullYear()}
               </CorvuCalendar.Label>
               <CorvuCalendar.Nav action="next-month" aria-label="Go to next month">
@@ -77,7 +77,14 @@ export function Calendar() {
 
       <section class={styles.log}>
         <h4>{value()?.toDateString()}</h4>
-        <textarea></textarea>
+        <div class={styles.textareaContainer}>
+          <TextareaAutosize
+            minRows={16}
+            class="textarea"
+            value={`This is a note.
+and this is a new line of that note.`}
+          />
+        </div>
       </section>
     </div>
   )

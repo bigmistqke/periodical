@@ -1,0 +1,19 @@
+.settings {
+  display: grid;
+  grid-template-rows: var(--height-row) 1fr;
+  padding-inline: var(--margin);
+  grid-template-rows: var(--height-row) 1fr;
+
+  & > header {
+    display: grid;
+    justify-content: center;
+  }
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: start;
+  align-content: start;
+  gap: 5px;
+}

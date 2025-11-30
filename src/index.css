@@ -12,4 +12,5 @@ body {
   --color-border-focus-visible: hsl(234, 100%, 50%);
   --color-bg-today: hsl(0, 0%, 94%);
   --height-row: 50px;
+  --margin: 5px;
 }
