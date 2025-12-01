@@ -4,22 +4,24 @@ import styles from './App.module.css'
 import { Calendar } from './Calendar'
 import { Home } from './Home'
 import { Settings } from './Settings'
-import { StoreContext } from './StoreContext'
+import { Store, StoreContext } from './StoreContext'
+import { DAY } from './constants'
 
 export default function () {
-  const [store, setStore] = createStore({
+  const [store, setStore] = createStore<Store>({
     settings: {
-      amountOfCycleDays: 25,
-      amountOfMenstruationDays: 5,
+      cycleDays: 25,
+      menstruationDays: 5,
     },
+    entries: [{ date: new Date(new Date().getTime() - 20 * DAY), note: '', bleeding: true }],
   })
 
   return (
     <div class={styles.page}>
-      <StoreContext.Provider value={store}>
+      <StoreContext.Provider value={{ store, setStore }}>
         <Router>
-          <Route path="/calendar" component={Calendar} />
           <Route path="/" component={Home} />
+          <Route path="/calendar" component={Calendar} />
           <Route path="/settings" component={Settings} />
         </Router>
       </StoreContext.Provider>

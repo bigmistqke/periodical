@@ -12,8 +12,12 @@
 
 .options {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: min-content 1fr;
   align-items: start;
   align-content: start;
-  gap: 5px;
+  gap: calc(var(--margin) * 2);
+
+  & > label {
+    white-space: nowrap;
+  }
 }

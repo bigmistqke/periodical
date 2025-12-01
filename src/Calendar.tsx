@@ -1,8 +1,8 @@
 import CorvuCalendar from '@corvu/calendar'
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'solid-icons/ai'
 import { createSignal, Index } from 'solid-js'
-import TextareaAutosize from 'solid-textarea-autosize'
 import styles from './Calendar.module.css'
+import { Settings } from './Settings'
 import theme from './Theme.module.css'
 
 const { format: formatWeekdayLong } = new Intl.DateTimeFormat('en', {
@@ -74,8 +74,9 @@ export function Calendar() {
           </div>
         )}
       </CorvuCalendar>
+      <Settings />
 
-      <section class={styles.log}>
+      {/* <section class={styles.log}>
         <h4>{value()?.toDateString()}</h4>
         <div class={styles.textareaContainer}>
           <TextareaAutosize
@@ -85,7 +86,7 @@ export function Calendar() {
 and this is a new line of that note.`}
           />
         </div>
-      </section>
+      </section> */}
     </div>
   )
 }
