@@ -1,17 +1,23 @@
 import { createContext, useContext } from 'solid-js'
 import { SetStoreFunction } from 'solid-js/store'
 
+export const themes = ['light', 'dark'] as const
+
 export interface Entry {
   date: Date
-  note: string
-  bleeding: boolean
 }
 
 export interface Store {
   settings: {
-    cycleDays: number
-    periodDays: number
+    cycle: {
+      cycleDuration: number
+      periodDuration: number
+    }
+    app: {
+      theme: (typeof themes)[number]
+    }
   }
+  currentDate: Date
   entries: Array<Entry>
 }
 

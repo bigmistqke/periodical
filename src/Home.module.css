@@ -1,0 +1,55 @@
+.overview {
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: calc(var(--size-row) * 2) 1fr var(--svg-height);
+  height: 100%;
+
+  & > .gradient {
+    box-shadow: 0px 0px 25px var(--color-bg);
+  }
+
+  & > .main {
+    display: grid;
+    align-content: center;
+
+    font-size: var(--size-m-font);
+
+    & > section {
+      display: grid;
+      padding-inline: calc(var(--margin) * 2);
+      gap: var(--margin);
+      padding-block: calc(var(--margin) * 4);
+      font-size: var(--size-l-font);
+
+      &:first-child {
+        border-bottom: 1px solid var(--color-border);
+      }
+
+      & > em {
+        font-size: var(--size-xxl-font);
+        line-height: var(--size-xxl-font);
+        font-style: normal;
+      }
+    }
+  }
+
+  & section {
+    position: relative;
+  }
+}
+
+.cycle-button {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  left: 50vw;
+  top: 20px;
+  transform: translateX(-50%);
+  padding: 2px;
+  display: grid;
+  background: var(--color-period);
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: none;
+  box-shadow: 0px 0px 50px var(--color-bg);
+}

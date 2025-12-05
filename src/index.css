@@ -5,12 +5,9 @@ body {
   font-weight: 300;
   font-family: 'Inter Tight', sans-serif;
   font-optical-sizing: auto;
+}
 
-  --color-bg-hover: hsl(0, 0%, 89%);
-  --color-bg-focus-visible: hsl(0, 0%, 95%);
-  --color-bg-selected: hsl(0, 0%, 89%);
-  --color-border-focus-visible: hsl(234, 100%, 50%);
-  --color-bg-today: hsl(0, 0%, 94%);
-  --height-row: 50px;
-  --margin: 5px;
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
 }

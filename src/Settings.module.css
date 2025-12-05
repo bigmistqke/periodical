@@ -1,8 +1,8 @@
 .settings {
   display: grid;
-  grid-template-rows: var(--height-row) 1fr;
+  grid-template-rows: var(--size-row) 1fr;
   padding-inline: var(--margin);
-  grid-template-rows: var(--height-row) 1fr;
+  grid-template-rows: var(--size-row) 1fr;
 
   & > header {
     display: grid;
