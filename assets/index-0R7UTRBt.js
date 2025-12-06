@@ -4617,7 +4617,7 @@ function App() {
           },
           get children() {
             return [createComponent(Route, {
-              path: "/",
+              path: "",
               component: Home
             }), createComponent(Route, {
               path: "/calendar",
