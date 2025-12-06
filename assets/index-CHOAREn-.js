@@ -2620,7 +2620,7 @@ function produce(fn) {
 
 function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else if("object"==typeof e)if(Array.isArray(e)){var o=e.length;for(t=0;t<o;t++)e[t]&&(f=r(e[t]))&&(n&&(n+=" "),n+=f);}else for(f in e)e[f]&&(n&&(n+=" "),n+=f);return n}function clsx(){for(var e,t,f=0,n="",o=arguments.length;f<o;f++)(e=arguments[f])&&(t=r(e))&&(n&&(n+=" "),n+=t);return n}
 
-const page = "_page_1ads9_1";
+const page = "_page_1algv_1";
 const styles$5 = {
 	page: page
 };
@@ -3473,11 +3473,11 @@ var Calendar$1 = Object.assign(Root_default, {
 });
 var index_default = Calendar$1;
 
-const calendarContainer = "_calendarContainer_y6mj1_1";
-const calendar = "_calendar_y6mj1_1";
-const indicator = "_indicator_y6mj1_78";
-const today = "_today_y6mj1_111";
-const past = "_past_y6mj1_116";
+const calendarContainer = "_calendarContainer_1r3uv_1";
+const calendar = "_calendar_1r3uv_1";
+const indicator = "_indicator_1r3uv_79";
+const today = "_today_1r3uv_112";
+const past = "_past_1r3uv_117";
 const styles$4 = {
 	calendarContainer: calendarContainer,
 	calendar: calendar,
@@ -3486,7 +3486,14 @@ const styles$4 = {
 	past: past
 };
 
-const themes = ["light", "dark"];
+const dark = "_dark_12mss_41";
+const light = "_light_12mss_63";
+const theme = {
+	dark: dark,
+	light: light
+};
+
+const themes = Object.keys(theme);
 const CirkeStoreContext = createContext();
 function useCirkel() {
   const context = useContext(CirkeStoreContext);
@@ -3496,10 +3503,8 @@ function useCirkel() {
   return context;
 }
 
-const dark = "_dark_1rje1_37";
-const title = "_title_1rje1_61";
-const theme = {
-	dark: dark,
+const title = "_title_90h1q_1";
+const global = {
 	title: title
 };
 
@@ -3664,7 +3669,7 @@ function Calendar() {
                   var _el$3 = _tmpl$2$4();
                   insert(_el$3, createComponent(index_default.Label, {
                     get ["class"]() {
-                      return theme.title;
+                      return global.title;
                     },
                     get children() {
                       return [memo(() => formatMonth(monthProps().month)), " ", memo(() => monthProps().month.getFullYear())];
@@ -3799,16 +3804,16 @@ function Calendar() {
   })();
 }
 
-const overview = "_overview_4dj3t_1";
-const gradient = "_gradient_4dj3t_7";
-const main = "_main_4dj3t_11";
-const statement = "_statement_4dj3t_62";
+const overview = "_overview_6hm62_1";
+const gradient = "_gradient_6hm62_12";
+const main = "_main_6hm62_16";
+const statement = "_statement_6hm62_72";
 const styles$3 = {
 	overview: overview,
 	gradient: gradient,
 	main: main,
-	"cycle-button": "_cycle-button_4dj3t_41",
-	"text-path": "_text-path_4dj3t_57",
+	"cycle-button": "_cycle-button_6hm62_48",
+	"text-path": "_text-path_6hm62_64",
 	statement: statement
 };
 
@@ -3910,16 +3915,16 @@ function FiArrowLeft(props) {
       }, props)
   }
 
-const modal = "_modal_h1xjl_1";
-const icon = "_icon_h1xjl_90";
-const section = "_section_h1xjl_115";
-const button = "_button_h1xjl_99";
+const modal = "_modal_1ik1c_1";
+const icon = "_icon_1ik1c_90";
+const section = "_section_1ik1c_115";
+const button = "_button_1ik1c_99";
 const styles$1 = {
 	modal: modal,
-	"binary-option": "_binary-option_h1xjl_70",
-	"label-container": "_label-container_h1xjl_79",
+	"binary-option": "_binary-option_1ik1c_70",
+	"label-container": "_label-container_1ik1c_79",
 	icon: icon,
-	"button-container": "_button-container_h1xjl_99",
+	"button-container": "_button-container_1ik1c_99",
 	section: section,
 	button: button
 };
@@ -4144,17 +4149,20 @@ function MenuModal(props) {
         title: "App Settings",
         get children() {
           return createComponent(Modal.BinaryOption, {
-            onLeftClick: () => setStore(produce((store2) => {
-              const index = (store2.settings.app.theme.indexOf(store2.settings.app.theme) - 1) % themes.length;
-              store2.settings.app.theme = themes[index];
-            })),
-            onRightClick: () => setStore(produce((store2) => {
-              let index = store2.settings.app.theme.indexOf(store2.settings.app.theme) - 1;
+            onLeftClick: () => setStore("settings", "app", "theme", (theme) => {
+              let index = themes.indexOf(theme);
+              index -= 1;
               if (index < 0) {
                 index = themes.length - 1;
               }
-              store2.settings.app.theme = themes[index];
-            })),
+              return themes[index];
+            }),
+            onRightClick: () => setStore("settings", "app", "theme", (theme) => {
+              let index = themes.indexOf(theme);
+              index += 1;
+              index %= themes.length;
+              return themes[index];
+            }),
             get title() {
               return [memo(() => store.settings.app.theme), " theme"];
             }
@@ -4170,7 +4178,7 @@ const modals = createModals({
   cycleStart: CycleStartModal
 });
 
-var _tmpl$$2 = /* @__PURE__ */ template(`<em> `), _tmpl$2 = /* @__PURE__ */ template(`<div>until your period ends (regularly).`), _tmpl$3 = /* @__PURE__ */ template(`<div>until day of your ovulation (maybe).`), _tmpl$4 = /* @__PURE__ */ template(`<div><div></div><section><section><em> day</em><div>of your cycle</div></section><section></section></section><section><button></button><svg><defs><path fill-rule=evenodd id=MyPath stroke=white></path></defs><text><textPath href=#MyPath stroke=white method=stretch startOffset=20 spacing=auto letter-spacing=10 font-size-adjust=20>a new cycle</textPath></text><line x1=0 y1=0 y2=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px>`), _tmpl$5 = /* @__PURE__ */ template(`<div>until your cycle is completed`);
+var _tmpl$$2 = /* @__PURE__ */ template(`<em> `), _tmpl$2 = /* @__PURE__ */ template(`<div>until your period ends (regularly).`), _tmpl$3 = /* @__PURE__ */ template(`<div>until day of your ovulation (maybe).`), _tmpl$4 = /* @__PURE__ */ template(`<div><div></div><section><section><em> day</em><div>of your cycle</div></section><section></section></section><section><button></button><svg><defs><path fill-rule=evenodd id=MyPath stroke=white></path></defs><text><textPath href=#MyPath stroke=white startOffset=25px textLength=155px>a new cycle</textPath></text><line x1=0 y1=0 y2=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px>`), _tmpl$5 = /* @__PURE__ */ template(`<div>until your cycle is completed`);
 const [bounds, setBounds] = createSignal(document.body.getBoundingClientRect());
 new ResizeObserver(() => setBounds(document.body.getBoundingClientRect())).observe(document.body);
 const BUTTON_SIZE = 80;
@@ -4193,8 +4201,8 @@ function Home() {
     }
     return stops.map(([color, percentage]) => [color, `${percentage}%`]);
   }
-  function circlePath(cx, cy, r) {
-    return "M " + cx + " " + cy + " m -" + r + ", 0 a " + r + "," + r + " 0 1,1 " + r * 2 + ",0 a " + r + "," + r + " 0 1,1 -" + r * 2 + ",0";
+  function halfCirclePath(cx, cy, r) {
+    return "M " + cx + " " + cy + " m -" + r + ", 0 a " + r + "," + r + " 0 1,1 " + r * 2 + ", 0";
   }
   function createGradient() {
     return `linear-gradient(to right, ${createGradientStops().map((arr) => arr.join(" ")).join(", ")})`;
@@ -4241,7 +4249,7 @@ function Home() {
     }));
     _el$13.$$click = () => modals.cycleStart.modal()?.show();
     createRenderEffect((_p$) => {
-      var _v$ = styles$3.overview, _v$2 = `${svgHeight()}px`, _v$3 = createGradient(), _v$4 = styles$3.gradient, _v$5 = styles$3.main, _v$6 = styles$3.statement, _v$7 = styles$3["cycle-button"], _v$8 = bounds().width, _v$9 = svgHeight() + BUTTON_SIZE, _v$0 = `0 -${BUTTON_SIZE / 2} ${bounds().width} ${svgHeight()}`, _v$1 = circlePath(bounds().width / 2, 0, 4 * BUTTON_SIZE / 5), _v$10 = styles$3["text-path"], _v$11 = bounds().width, _v$12 = bounds().width / 2, _v$13 = svgHeight() / 4, _v$14 = bounds().width / 2, _v$15 = svgHeight() / 2, _v$16 = bounds().width / 2, _v$17 = 3 * svgHeight() / 4, _v$18 = bounds().width / 2, _v$19 = svgHeight(), _v$20 = bounds().width / 2, _v$21 = svgHeight(), _v$22 = bounds().width / 2, _v$23 = bounds().width / 4, _v$24 = svgHeight(), _v$25 = bounds().width / 2, _v$26 = bounds().width / 2, _v$27 = svgHeight(), _v$28 = bounds().width / 2, _v$29 = 3 * bounds().width / 4, _v$30 = svgHeight(), _v$31 = bounds().width / 2, _v$32 = bounds().width, _v$33 = svgHeight(), _v$34 = bounds().width / 2, _v$35 = bounds().width, _v$36 = svgHeight() / 4, _v$37 = bounds().width / 2, _v$38 = bounds().width, _v$39 = svgHeight() / 2, _v$40 = bounds().width / 2, _v$41 = bounds().width, _v$42 = 3 * svgHeight() / 4;
+      var _v$ = styles$3.overview, _v$2 = `${svgHeight()}px`, _v$3 = createGradient(), _v$4 = styles$3.gradient, _v$5 = styles$3.main, _v$6 = styles$3.statement, _v$7 = styles$3["cycle-button"], _v$8 = bounds().width, _v$9 = svgHeight() + BUTTON_SIZE, _v$0 = `0 -${BUTTON_SIZE / 2} ${bounds().width} ${svgHeight()}`, _v$1 = halfCirclePath(bounds().width / 2, 0, 4 * BUTTON_SIZE / 5), _v$10 = styles$3["text-path"], _v$11 = bounds().width, _v$12 = bounds().width / 2, _v$13 = svgHeight() / 4, _v$14 = bounds().width / 2, _v$15 = svgHeight() / 2, _v$16 = bounds().width / 2, _v$17 = 3 * svgHeight() / 4, _v$18 = bounds().width / 2, _v$19 = svgHeight(), _v$20 = bounds().width / 2, _v$21 = svgHeight(), _v$22 = bounds().width / 2, _v$23 = bounds().width / 4, _v$24 = svgHeight(), _v$25 = bounds().width / 2, _v$26 = bounds().width / 2, _v$27 = svgHeight(), _v$28 = bounds().width / 2, _v$29 = 3 * bounds().width / 4, _v$30 = svgHeight(), _v$31 = bounds().width / 2, _v$32 = bounds().width, _v$33 = svgHeight(), _v$34 = bounds().width / 2, _v$35 = bounds().width, _v$36 = svgHeight() / 4, _v$37 = bounds().width / 2, _v$38 = bounds().width, _v$39 = svgHeight() / 2, _v$40 = bounds().width / 2, _v$41 = bounds().width, _v$42 = 3 * svgHeight() / 4;
       _v$ !== _p$.e && className(_el$, _p$.e = _v$);
       _v$2 !== _p$.t && setStyleProperty(_el$, "--svg-height", _p$.t = _v$2);
       _v$3 !== _p$.a && setStyleProperty(_el$2, "background", _p$.a = _v$3);
@@ -4345,10 +4353,10 @@ function VsMenu(props) {
       }, props)
   }
 
-const menu = "_menu_17pv6_31";
-const active = "_active_17pv6_44";
+const menu = "_menu_vahlv_31";
+const active = "_active_vahlv_46";
 const styles = {
-	"navigation-container": "_navigation-container_17pv6_1",
+	"navigation-container": "_navigation-container_vahlv_1",
 	menu: menu,
 	active: active
 };
@@ -4398,7 +4406,7 @@ function App() {
         ovulationDuration: 4
       },
       app: {
-        theme: "dark"
+        theme: "light"
       }
     },
     entries: [{
@@ -4414,38 +4422,39 @@ function App() {
         setStore
       },
       get children() {
-        return [createComponent(modals.menu.Modal, {}), createComponent(modals.cycleStart.Modal, {}), createComponent(Router, {
-          url: "./cirkel",
-          base: "/cirkel",
-          root: (props) => {
-            const transition = function(fnThatChangesTheDOM) {
-              if (!document.startViewTransition) {
-                return fnThatChangesTheDOM();
-              }
-              document.startViewTransition(fnThatChangesTheDOM);
-            };
-            useBeforeLeave((e) => {
-              e.preventDefault();
-              transition(() => {
-                e.retry(true);
+        return [createComponent(modals.menu.Modal, {}), createComponent(modals.cycleStart.Modal, {}), createComponent(
+          Router,
+          {
+            root: (props) => {
+              const transition = function(fnThatChangesTheDOM) {
+                if (!document.startViewTransition) {
+                  return fnThatChangesTheDOM();
+                }
+                document.startViewTransition(fnThatChangesTheDOM);
+              };
+              useBeforeLeave((e) => {
+                e.preventDefault();
+                transition(() => {
+                  e.retry(true);
+                });
               });
-            });
-            return [memo(() => props.children), createComponent(Navigation, {
-              get menu() {
-                return modals.menu.modal();
-              }
-            })];
-          },
-          get children() {
-            return [createComponent(Route, {
-              path: "/",
-              component: Home
-            }), createComponent(Route, {
-              path: "/calendar",
-              component: Calendar
-            })];
+              return [memo(() => props.children), createComponent(Navigation, {
+                get menu() {
+                  return modals.menu.modal();
+                }
+              })];
+            },
+            get children() {
+              return [createComponent(Route, {
+                path: "/",
+                component: Home
+              }), createComponent(Route, {
+                path: "/calendar",
+                component: Calendar
+              })];
+            }
           }
-        })];
+        )];
       }
     }));
     createRenderEffect(() => className(_el$, clsx(styles$5.page, theme[store.settings.app.theme])));
