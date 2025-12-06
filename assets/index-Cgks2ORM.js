@@ -3586,10 +3586,11 @@ const styles$4 = {
 	past: past
 };
 
-const dark = "_dark_ska8c_30";
-const light = "_light_ska8c_55";
+const dark = "_dark_1b6ue_30";
+const light = "_light_1b6ue_77";
 const theme = {
 	dark: dark,
+	"deep-purple": "_deep-purple_1b6ue_52",
 	light: light
 };
 
@@ -4272,7 +4273,7 @@ function MenuModal(props) {
               return themes[index];
             }),
             get title() {
-              return [memo(() => store.settings.app.theme), " theme"];
+              return memo(() => store.settings.app.theme.split("-").join(" "));
             }
           });
         }
