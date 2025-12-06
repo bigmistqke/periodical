@@ -3571,12 +3571,12 @@ var Calendar$1 = Object.assign(Root_default, {
 });
 var index_default = Calendar$1;
 
-const calendarContainer = "_calendarContainer_17zik_1";
-const calendar = "_calendar_17zik_1";
-const cell = "_cell_17zik_85";
-const indicator = "_indicator_17zik_95";
-const today = "_today_17zik_126";
-const past = "_past_17zik_131";
+const calendarContainer = "_calendarContainer_9icvx_1";
+const calendar = "_calendar_9icvx_1";
+const cell = "_cell_9icvx_86";
+const indicator = "_indicator_9icvx_96";
+const today = "_today_9icvx_127";
+const past = "_past_9icvx_132";
 const styles$4 = {
 	calendarContainer: calendarContainer,
 	calendar: calendar,
@@ -3797,7 +3797,7 @@ function Calendar() {
                                 return formatWeekdayLong(weekday());
                               },
                               get children() {
-                                return formatWeekdayShort(weekday());
+                                return formatWeekdayShort(weekday()).toLowerCase();
                               }
                             });
                           }
@@ -3839,7 +3839,7 @@ function Calendar() {
                                           return formatWeekdayLong(day());
                                         },
                                         get children() {
-                                          return formatWeekdayShort(day());
+                                          return formatWeekdayShort(day()).toLowerCase();
                                         }
                                       });
                                     }
