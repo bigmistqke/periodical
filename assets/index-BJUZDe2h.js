@@ -3586,8 +3586,8 @@ const styles$4 = {
 	past: past
 };
 
-const dark = "_dark_1tkwa_53";
-const light = "_light_1tkwa_78";
+const dark = "_dark_pcm6a_48";
+const light = "_light_pcm6a_73";
 const theme = {
 	dark: dark,
 	light: light
