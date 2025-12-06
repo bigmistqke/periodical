@@ -26,3 +26,6 @@ gitignore
 # System Files
 .DS_Store
 Thumbs.db
+
+# Vite Plugin PWA
+dev-dist
