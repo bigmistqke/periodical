@@ -146,9 +146,11 @@ export function Calendar() {
                                             : undefined,
                                         )}
                                       >
-                                        <Show when={periodDay() !== -1 || ovulationDay() !== -1}>
-                                          <div class={styles.indicator} />
-                                        </Show>
+                                        <div class={styles.cell}>
+                                          <Show when={periodDay() !== -1 || ovulationDay() !== -1}>
+                                            <div class={styles.indicator} />
+                                          </Show>
+                                        </div>
                                       </CorvuCalendar.Cell>
                                     </Show>
                                   )
