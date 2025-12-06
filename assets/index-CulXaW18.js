@@ -3571,14 +3571,16 @@ var Calendar$1 = Object.assign(Root_default, {
 });
 var index_default = Calendar$1;
 
-const calendarContainer = "_calendarContainer_4piyi_1";
-const calendar = "_calendar_4piyi_1";
-const indicator = "_indicator_4piyi_79";
-const today = "_today_4piyi_117";
-const past = "_past_4piyi_122";
+const calendarContainer = "_calendarContainer_17zik_1";
+const calendar = "_calendar_17zik_1";
+const cell = "_cell_17zik_85";
+const indicator = "_indicator_17zik_95";
+const today = "_today_17zik_126";
+const past = "_past_17zik_131";
 const styles$4 = {
 	calendarContainer: calendarContainer,
 	calendar: calendar,
+	cell: cell,
 	indicator: indicator,
 	today: today,
 	past: past
@@ -3826,9 +3828,9 @@ function Calendar() {
                                     when: index2 === 0,
                                     get fallback() {
                                       return (() => {
-                                        var _el$0 = _tmpl$7();
-                                        createRenderEffect(() => className(_el$0, styles$4.cell));
-                                        return _el$0;
+                                        var _el$1 = _tmpl$7();
+                                        createRenderEffect(() => className(_el$1, styles$4.cell));
+                                        return _el$1;
                                       })();
                                     },
                                     get children() {
@@ -3866,16 +3868,19 @@ function Calendar() {
                                       return clsx(isSameDay(day(), store.currentDate) ? styles$4.today : isSameDayOrBefore(day(), store.currentDate) ? styles$4.past : void 0);
                                     },
                                     get children() {
-                                      return createComponent(Show, {
+                                      var _el$9 = _tmpl$$7();
+                                      insert(_el$9, createComponent(Show, {
                                         get when() {
                                           return periodDay() !== -1 || ovulationDay() !== -1;
                                         },
                                         get children() {
-                                          var _el$9 = _tmpl$$7();
-                                          createRenderEffect(() => className(_el$9, styles$4.indicator));
-                                          return _el$9;
+                                          var _el$0 = _tmpl$$7();
+                                          createRenderEffect(() => className(_el$0, styles$4.indicator));
+                                          return _el$0;
                                         }
-                                      });
+                                      }));
+                                      createRenderEffect(() => className(_el$9, styles$4.cell));
+                                      return _el$9;
                                     }
                                   });
                                 }
