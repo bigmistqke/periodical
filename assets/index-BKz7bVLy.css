@@ -302,6 +302,11 @@
 ._calendar_1j98s_1:not(:has(tr:first-of-type [data-corvu-calendar-cell][data-day]:nth-child(6))) tr:nth-child(2) [data-corvu-calendar-cell]:nth-child(6) > ._cell_1j98s_86 {
     border-top: 1px solid var(--color-border);
   }
+@font-face {
+  font-family: cirkel;
+  src: url(assets/cirkel.ttf);
+}
+
 body {
   margin: 0px;
   padding: 0px;
@@ -340,6 +345,7 @@ button {
   font-size: inherit;
   font-family: inherit;
   font-weight: inherit;
+  cursor: pointer;
 }
 
 ::view-transition-old(root),
@@ -347,7 +353,7 @@ button {
   animation-duration: 0.125s;
 }
 
-._dark_1v5nc_46 {
+._dark_8bmsy_52 {
   --color-front: #b7c9e9;
   --color-middle: #aab8d2;
   --color-period: #d53f3f;
@@ -369,10 +375,10 @@ button {
   );
   --filter-past-indicator: brightness(50%);
 
-  --font-family: 'Inter Tight';
+  --font-family: cirkel;
 }
 
-._light_1v5nc_71 {
+._light_8bmsy_77 {
   --color-front: #212327;
   --color-middle: #32363e;
   --color-period: #d53f3f;
@@ -390,7 +396,7 @@ button {
   --bg-modal-underlay: #d3d3d3;
   --filter-past-indicator: brightness(175%) saturate(50%);
 
-  --font-family: 'Inter Tight';
+  --font-family: cirkel;
 }
 ._title_5ql1p_1 {
   font-size: 1.25rem;
@@ -398,28 +404,28 @@ button {
   font-family: var(--font-family);
   font-optical-sizing: auto;
 }
-._overview_1bvch_1 {
+._overview_kehli_1 {
   overflow: hidden;
   display: grid;
   grid-template-rows: calc(var(--size-row) * 2) 1fr var(--svg-height);
   height: 100%;
 }
 
-._overview_1bvch_1 section {
+._overview_kehli_1 section {
     position: relative;
   }
 
-._gradient_1bvch_12 {
+._gradient_kehli_12 {
   box-shadow: 0px 0px 25px var(--color-bg);
 }
 
-._main_1bvch_16 {
+._main_kehli_16 {
   display: grid;
   align-content: center;
   font-size: var(--size-s-font);
 }
 
-._main_1bvch_16 > section {
+._main_kehli_16 > section {
     display: grid;
     padding-inline: calc(var(--margin) * 3);
     gap: var(--margin);
@@ -429,23 +435,23 @@ button {
     justify-content: center;
   }
 
-:is(._main_1bvch_16 > section):first-child {
+:is(._main_kehli_16 > section):first-child {
       border-bottom: 1px solid var(--color-border);
       padding-bottom: calc(var(--margin) * 3);
       margin-bottom: calc(var(--margin) * 3);
     }
 
-:is(._main_1bvch_16 > section) > em {
+:is(._main_kehli_16 > section) > em {
       font-size: var(--size-xl-font);
       line-height: var(--size-xl-font);
       font-style: normal;
     }
 
-:is(._main_1bvch_16 > section) > div {
+:is(._main_kehli_16 > section) > div {
       text-wrap: balance;
     }
 
-._cycle-button_1bvch_48 {
+._cycle-button_kehli_48 {
   position: absolute;
   width: 60px;
   height: 60px;
@@ -461,15 +467,15 @@ button {
   box-shadow: 0px 0px 50px var(--color-bg);
 }
 
-._text-path_1bvch_64 {
+._text-path_kehli_64 {
   font-size: var(--size-xs-font);
   letter-spacing: 6.5px;
   font-weight: 100;
   text-align: center;
-  stroke: var(--color-front);
+  stroke-width: 0px;
 }
 
-._statement_1bvch_72 > div {
+._statement_kehli_72 > div {
     text-wrap: balance;
   }
 ._buttons_1dl42_1 {

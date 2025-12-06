@@ -3586,8 +3586,8 @@ const styles$4 = {
 	past: past
 };
 
-const dark = "_dark_1v5nc_46";
-const light = "_light_1v5nc_71";
+const dark = "_dark_8bmsy_52";
+const light = "_light_8bmsy_77";
 const theme = {
 	dark: dark,
 	light: light
@@ -3907,16 +3907,16 @@ function Calendar() {
   })();
 }
 
-const overview = "_overview_1bvch_1";
-const gradient = "_gradient_1bvch_12";
-const main = "_main_1bvch_16";
-const statement = "_statement_1bvch_72";
+const overview = "_overview_kehli_1";
+const gradient = "_gradient_kehli_12";
+const main = "_main_kehli_16";
+const statement = "_statement_kehli_72";
 const styles$3 = {
 	overview: overview,
 	gradient: gradient,
 	main: main,
-	"cycle-button": "_cycle-button_1bvch_48",
-	"text-path": "_text-path_1bvch_64",
+	"cycle-button": "_cycle-button_kehli_48",
+	"text-path": "_text-path_kehli_64",
 	statement: statement
 };
 
@@ -4281,7 +4281,7 @@ const modals = createModals({
   cycleStart: CycleStartModal
 });
 
-var _tmpl$$2 = /* @__PURE__ */ template(`<em> `), _tmpl$2 = /* @__PURE__ */ template(`<div>until your period ends`), _tmpl$3 = /* @__PURE__ */ template(`<div>until day of your ovulation`), _tmpl$4 = /* @__PURE__ */ template(`<div><div></div><section><section><em> day</em><div>of your cycle</div></section><section></section></section><section><button></button><svg><defs><path fill-rule=evenodd id=MyPath stroke=white></path></defs><text><textPath href=#MyPath stroke=white startOffset=25px textLength=155px>a new cycle</textPath></text><line x1=0 y1=0 y2=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px>`), _tmpl$5 = /* @__PURE__ */ template(`<div>until your cycle is completed`);
+var _tmpl$$2 = /* @__PURE__ */ template(`<em> `), _tmpl$2 = /* @__PURE__ */ template(`<div>until your period ends`), _tmpl$3 = /* @__PURE__ */ template(`<div>until day of your ovulation`), _tmpl$4 = /* @__PURE__ */ template(`<div><div></div><section><section><em> day</em><div>of your cycle</div></section><section></section></section><section><button></button><svg><defs><path fill-rule=evenodd id=MyPath stroke=white></path></defs><text><textPath href=#MyPath stroke=white startOffset=25px textLength=160px>a new cycle</textPath></text><line x1=0 y1=0 y2=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px>`), _tmpl$5 = /* @__PURE__ */ template(`<div>until your cycle is completed`);
 const [bounds, setBounds] = createSignal(document.body.getBoundingClientRect());
 new ResizeObserver(() => setBounds(document.body.getBoundingClientRect())).observe(document.body);
 const BUTTON_SIZE = 80;
