@@ -4405,10 +4405,10 @@ function VsMenu(props) {
       }, props)
   }
 
-const menuModalButton = "_menuModalButton_1gj74_34";
-const active = "_active_1gj74_48";
+const menuModalButton = "_menuModalButton_ttut2_33";
+const active = "_active_ttut2_47";
 const styles = {
-	"navigation-container": "_navigation-container_1gj74_1",
+	"navigation-container": "_navigation-container_ttut2_1",
 	menuModalButton: menuModalButton,
 	active: active
 };
