@@ -3586,11 +3586,11 @@ const styles$4 = {
 	past: past
 };
 
-const dark = "_dark_17dxk_30";
-const light = "_light_17dxk_74";
+const dark = "_dark_ec809_30";
+const light = "_light_ec809_78";
 const theme = {
 	dark: dark,
-	"deep-purple": "_deep-purple_17dxk_52",
+	"deep-purple": "_deep-purple_ec809_54",
 	light: light
 };
 
@@ -4159,17 +4159,23 @@ function CycleStartModal(props) {
       return (() => {
         var _el$ = _tmpl$$4();
         insert(_el$, createComponent(Modal.Button, {
+          style: {
+            "border-color": "var(--color-red)"
+          },
           onClick: () => modal()?.close(),
           children: "cancel"
         }), null);
         insert(_el$, createComponent(Modal.Button, {
+          style: {
+            "border-color": "var(--color-green)"
+          },
           onClick: () => {
             setStore("entries", produce((entries) => entries.push({
               date: addDays(normalizeDate(/* @__PURE__ */ new Date()), day())
             })));
             modal()?.close();
           },
-          children: "confirm"
+          children: "start cycle"
         }), null);
         createRenderEffect(() => className(_el$, styles$2.buttons));
         return _el$;
@@ -4177,7 +4183,7 @@ function CycleStartModal(props) {
     },
     get children() {
       return createComponent(Modal.Section, {
-        title: "Start Day of Cycle",
+        title: "Your period started",
         get children() {
           return createComponent(Modal.BinaryOption, {
             onLeftClick: () => setDay((day2) => day2 - 1),
