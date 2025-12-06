@@ -3907,17 +3907,18 @@ function Calendar() {
   })();
 }
 
-const overview = "_overview_kehli_1";
-const gradient = "_gradient_kehli_12";
-const main = "_main_kehli_16";
-const statement = "_statement_kehli_72";
+const home = "_home_160po_1";
+const gradient = "_gradient_160po_14";
+const main = "_main_160po_18";
+const statement = "_statement_160po_59";
 const styles$3 = {
-	overview: overview,
+	home: home,
 	gradient: gradient,
 	main: main,
-	"cycle-button": "_cycle-button_kehli_48",
-	"text-path": "_text-path_kehli_64",
-	statement: statement
+	"text-path": "_text-path_160po_50",
+	statement: statement,
+	"cycle-button-container": "_cycle-button-container_160po_65",
+	"cycle-button": "_cycle-button_160po_65"
 };
 
 /**
@@ -4281,10 +4282,9 @@ const modals = createModals({
   cycleStart: CycleStartModal
 });
 
-var _tmpl$$2 = /* @__PURE__ */ template(`<em> `), _tmpl$2 = /* @__PURE__ */ template(`<div>until your period ends`), _tmpl$3 = /* @__PURE__ */ template(`<div>until day of your ovulation`), _tmpl$4 = /* @__PURE__ */ template(`<div><div></div><section><section><em> day</em><div>of your cycle</div></section><section></section></section><section><button></button><svg><defs><path fill-rule=evenodd id=MyPath stroke=white></path></defs><text><textPath href=#MyPath stroke=white startOffset=25px textLength=160px>a new cycle</textPath></text><line x1=0 y1=0 y2=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px>`), _tmpl$5 = /* @__PURE__ */ template(`<div>until your cycle is completed`);
+var _tmpl$$2 = /* @__PURE__ */ template(`<em> `), _tmpl$2 = /* @__PURE__ */ template(`<div>until your period ends`), _tmpl$3 = /* @__PURE__ */ template(`<div>until day of your ovulation`), _tmpl$4 = /* @__PURE__ */ template(`<div><div></div><section><section><em> day</em><div>of your cycle</div></section><section></section></section><section><div><button></button><svg width=120 height=120 viewBox="0 0 120 120"><defs><path fill-rule=evenodd id=MyPath stroke=white></path></defs><text><textPath href=#MyPath stroke=white startOffset=25px textLength=90px>a new cycle`), _tmpl$5 = /* @__PURE__ */ template(`<div>until your cycle is completed`);
 const [bounds, setBounds] = createSignal(document.body.getBoundingClientRect());
 new ResizeObserver(() => setBounds(document.body.getBoundingClientRect())).observe(document.body);
-const BUTTON_SIZE = 80;
 function Home() {
   const {
     store
@@ -4311,15 +4311,15 @@ function Home() {
     return `linear-gradient(to right, ${createGradientStops().map((arr) => arr.join(" ")).join(", ")})`;
   }
   return (() => {
-    var _el$ = _tmpl$4(), _el$2 = _el$.firstChild, _el$3 = _el$2.nextSibling, _el$4 = _el$3.firstChild, _el$5 = _el$4.firstChild, _el$6 = _el$5.firstChild, _el$7 = _el$4.nextSibling, _el$12 = _el$3.nextSibling, _el$13 = _el$12.firstChild, _el$14 = _el$13.nextSibling, _el$15 = _el$14.firstChild, _el$16 = _el$15.firstChild, _el$17 = _el$15.nextSibling, _el$18 = _el$17.firstChild, _el$19 = _el$17.nextSibling, _el$20 = _el$19.nextSibling, _el$21 = _el$20.nextSibling, _el$22 = _el$21.nextSibling, _el$23 = _el$22.nextSibling, _el$24 = _el$23.nextSibling, _el$25 = _el$24.nextSibling, _el$26 = _el$25.nextSibling, _el$27 = _el$26.nextSibling, _el$28 = _el$27.nextSibling, _el$29 = _el$28.nextSibling, _el$30 = _el$29.nextSibling, _el$31 = _el$30.nextSibling;
+    var _el$ = _tmpl$4(), _el$2 = _el$.firstChild, _el$3 = _el$2.nextSibling, _el$4 = _el$3.firstChild, _el$5 = _el$4.firstChild, _el$6 = _el$5.firstChild, _el$7 = _el$4.nextSibling, _el$12 = _el$3.nextSibling, _el$13 = _el$12.firstChild, _el$14 = _el$13.firstChild, _el$15 = _el$14.nextSibling, _el$16 = _el$15.firstChild, _el$17 = _el$16.firstChild, _el$18 = _el$16.nextSibling, _el$19 = _el$18.firstChild;
     insert(_el$5, () => postfixOrdinal(getDayOfTheCycle(store, store.currentDate) + 1), _el$6);
     insert(_el$7, createComponent(Switch, {
       get fallback() {
         return [(() => {
-          var _el$32 = _tmpl$$2(), _el$33 = _el$32.firstChild;
-          insert(_el$32, () => getDaysUntilCycleCompletes(store, store.currentDate), _el$33);
-          insert(_el$32, () => postfixCardinal(getDaysUntilCycleCompletes(store, store.currentDate), "day"), null);
-          return _el$32;
+          var _el$20 = _tmpl$$2(), _el$21 = _el$20.firstChild;
+          insert(_el$20, () => getDaysUntilCycleCompletes(store, store.currentDate), _el$21);
+          insert(_el$20, () => postfixCardinal(getDaysUntilCycleCompletes(store, store.currentDate), "day"), null);
+          return _el$20;
         })(), _tmpl$5()];
       },
       get children() {
@@ -4350,9 +4350,9 @@ function Home() {
         })];
       }
     }));
-    _el$13.$$click = () => modals.cycleStart.modal()?.show();
+    _el$14.$$click = () => modals.cycleStart.modal()?.show();
     createRenderEffect((_p$) => {
-      var _v$ = styles$3.overview, _v$2 = `${svgHeight()}px`, _v$3 = createGradient(), _v$4 = styles$3.gradient, _v$5 = styles$3.main, _v$6 = styles$3.statement, _v$7 = styles$3["cycle-button"], _v$8 = bounds().width, _v$9 = svgHeight() + BUTTON_SIZE, _v$0 = `0 -${BUTTON_SIZE / 2} ${bounds().width} ${svgHeight()}`, _v$1 = halfCirclePath(bounds().width / 2, 0, 4 * BUTTON_SIZE / 5), _v$10 = styles$3["text-path"], _v$11 = bounds().width, _v$12 = bounds().width / 2, _v$13 = svgHeight() / 4, _v$14 = bounds().width / 2, _v$15 = svgHeight() / 2, _v$16 = bounds().width / 2, _v$17 = 3 * svgHeight() / 4, _v$18 = bounds().width / 2, _v$19 = svgHeight(), _v$20 = bounds().width / 2, _v$21 = svgHeight(), _v$22 = bounds().width / 2, _v$23 = bounds().width / 4, _v$24 = svgHeight(), _v$25 = bounds().width / 2, _v$26 = bounds().width / 2, _v$27 = svgHeight(), _v$28 = bounds().width / 2, _v$29 = 3 * bounds().width / 4, _v$30 = svgHeight(), _v$31 = bounds().width / 2, _v$32 = bounds().width, _v$33 = svgHeight(), _v$34 = bounds().width / 2, _v$35 = bounds().width, _v$36 = svgHeight() / 4, _v$37 = bounds().width / 2, _v$38 = bounds().width, _v$39 = svgHeight() / 2, _v$40 = bounds().width / 2, _v$41 = bounds().width, _v$42 = 3 * svgHeight() / 4;
+      var _v$ = styles$3.home, _v$2 = `${svgHeight()}px`, _v$3 = createGradient(), _v$4 = styles$3.gradient, _v$5 = styles$3.main, _v$6 = styles$3.statement, _v$7 = styles$3["cycle-button-container"], _v$8 = styles$3["cycle-button"], _v$9 = halfCirclePath(60, 60, 40), _v$0 = styles$3["text-path"];
       _v$ !== _p$.e && className(_el$, _p$.e = _v$);
       _v$2 !== _p$.t && setStyleProperty(_el$, "--svg-height", _p$.t = _v$2);
       _v$3 !== _p$.a && setStyleProperty(_el$2, "background", _p$.a = _v$3);
@@ -4360,43 +4360,9 @@ function Home() {
       _v$5 !== _p$.i && className(_el$3, _p$.i = _v$5);
       _v$6 !== _p$.n && className(_el$7, _p$.n = _v$6);
       _v$7 !== _p$.s && className(_el$13, _p$.s = _v$7);
-      _v$8 !== _p$.h && setAttribute(_el$14, "width", _p$.h = _v$8);
-      _v$9 !== _p$.r && setAttribute(_el$14, "height", _p$.r = _v$9);
-      _v$0 !== _p$.d && setAttribute(_el$14, "viewBox", _p$.d = _v$0);
-      _v$1 !== _p$.l && setAttribute(_el$16, "d", _p$.l = _v$1);
-      _v$10 !== _p$.u && setAttribute(_el$18, "class", _p$.u = _v$10);
-      _v$11 !== _p$.c && setAttribute(_el$19, "x2", _p$.c = _v$11);
-      _v$12 !== _p$.w && setAttribute(_el$20, "x1", _p$.w = _v$12);
-      _v$13 !== _p$.m && setAttribute(_el$20, "y2", _p$.m = _v$13);
-      _v$14 !== _p$.f && setAttribute(_el$21, "x1", _p$.f = _v$14);
-      _v$15 !== _p$.y && setAttribute(_el$21, "y2", _p$.y = _v$15);
-      _v$16 !== _p$.g && setAttribute(_el$22, "x1", _p$.g = _v$16);
-      _v$17 !== _p$.p && setAttribute(_el$22, "y2", _p$.p = _v$17);
-      _v$18 !== _p$.b && setAttribute(_el$23, "x1", _p$.b = _v$18);
-      _v$19 !== _p$.T && setAttribute(_el$23, "y2", _p$.T = _v$19);
-      _v$20 !== _p$.A && setAttribute(_el$24, "x1", _p$.A = _v$20);
-      _v$21 !== _p$.O && setAttribute(_el$24, "y2", _p$.O = _v$21);
-      _v$22 !== _p$.I && setAttribute(_el$25, "x1", _p$.I = _v$22);
-      _v$23 !== _p$.S && setAttribute(_el$25, "x2", _p$.S = _v$23);
-      _v$24 !== _p$.W && setAttribute(_el$25, "y2", _p$.W = _v$24);
-      _v$25 !== _p$.C && setAttribute(_el$26, "x1", _p$.C = _v$25);
-      _v$26 !== _p$.B && setAttribute(_el$26, "x2", _p$.B = _v$26);
-      _v$27 !== _p$.v && setAttribute(_el$26, "y2", _p$.v = _v$27);
-      _v$28 !== _p$.k && setAttribute(_el$27, "x1", _p$.k = _v$28);
-      _v$29 !== _p$.x && setAttribute(_el$27, "x2", _p$.x = _v$29);
-      _v$30 !== _p$.j && setAttribute(_el$27, "y2", _p$.j = _v$30);
-      _v$31 !== _p$.q && setAttribute(_el$28, "x1", _p$.q = _v$31);
-      _v$32 !== _p$.z && setAttribute(_el$28, "x2", _p$.z = _v$32);
-      _v$33 !== _p$.P && setAttribute(_el$28, "y2", _p$.P = _v$33);
-      _v$34 !== _p$.H && setAttribute(_el$29, "x1", _p$.H = _v$34);
-      _v$35 !== _p$.F && setAttribute(_el$29, "x2", _p$.F = _v$35);
-      _v$36 !== _p$.M && setAttribute(_el$29, "y2", _p$.M = _v$36);
-      _v$37 !== _p$.D && setAttribute(_el$30, "x1", _p$.D = _v$37);
-      _v$38 !== _p$.R && setAttribute(_el$30, "x2", _p$.R = _v$38);
-      _v$39 !== _p$.E && setAttribute(_el$30, "y2", _p$.E = _v$39);
-      _v$40 !== _p$.L && setAttribute(_el$31, "x1", _p$.L = _v$40);
-      _v$41 !== _p$.N && setAttribute(_el$31, "x2", _p$.N = _v$41);
-      _v$42 !== _p$.G && setAttribute(_el$31, "y2", _p$.G = _v$42);
+      _v$8 !== _p$.h && className(_el$14, _p$.h = _v$8);
+      _v$9 !== _p$.r && setAttribute(_el$17, "d", _p$.r = _v$9);
+      _v$0 !== _p$.d && setAttribute(_el$19, "class", _p$.d = _v$0);
       return _p$;
     }, {
       e: void 0,
@@ -4408,41 +4374,7 @@ function Home() {
       s: void 0,
       h: void 0,
       r: void 0,
-      d: void 0,
-      l: void 0,
-      u: void 0,
-      c: void 0,
-      w: void 0,
-      m: void 0,
-      f: void 0,
-      y: void 0,
-      g: void 0,
-      p: void 0,
-      b: void 0,
-      T: void 0,
-      A: void 0,
-      O: void 0,
-      I: void 0,
-      S: void 0,
-      W: void 0,
-      C: void 0,
-      B: void 0,
-      v: void 0,
-      k: void 0,
-      x: void 0,
-      j: void 0,
-      q: void 0,
-      z: void 0,
-      P: void 0,
-      H: void 0,
-      F: void 0,
-      M: void 0,
-      D: void 0,
-      R: void 0,
-      E: void 0,
-      L: void 0,
-      N: void 0,
-      G: void 0
+      d: void 0
     });
     return _el$;
   })();

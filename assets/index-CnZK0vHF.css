@@ -400,28 +400,30 @@ button {
   font-family: var(--font-family);
   font-optical-sizing: auto;
 }
-._overview_kehli_1 {
+._home_160po_1 {
   overflow: hidden;
   display: grid;
-  grid-template-rows: calc(var(--size-row) * 2) 1fr var(--svg-height);
-  height: 100%;
+  grid-template-rows: calc(var(--size-row) * 2) 1fr calc(
+      120px + var(--margin) * 2 + var(--size-row)
+    );
+  height: calc(100% - var(--size-row) + var(--margin) * 2);
 }
 
-._overview_kehli_1 section {
+._home_160po_1 section {
     position: relative;
   }
 
-._gradient_kehli_12 {
+._gradient_160po_14 {
   box-shadow: 0px 0px 25px var(--color-bg);
 }
 
-._main_kehli_16 {
+._main_160po_18 {
   display: grid;
   align-content: center;
   font-size: var(--size-s-font);
 }
 
-._main_kehli_16 > section {
+._main_160po_18 > section {
     display: grid;
     padding-inline: calc(var(--margin) * 3);
     gap: var(--margin);
@@ -431,49 +433,55 @@ button {
     justify-content: center;
   }
 
-:is(._main_kehli_16 > section):first-child {
+:is(._main_160po_18 > section):first-child {
       border-bottom: 1px solid var(--color-border);
       padding-bottom: calc(var(--margin) * 3);
       margin-bottom: calc(var(--margin) * 3);
     }
 
-:is(._main_kehli_16 > section) > em {
+:is(._main_160po_18 > section) > em {
       font-size: var(--size-xl-font);
       line-height: var(--size-xl-font);
       font-style: normal;
     }
 
-:is(._main_kehli_16 > section) > div {
+:is(._main_160po_18 > section) > div {
       text-wrap: balance;
     }
 
-._cycle-button_kehli_48 {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  left: 50vw;
-  top: 80px;
-  transform: translate(-50%, -50%);
-  padding: 2px;
-  display: grid;
-  background: var(--color-period);
-  border-radius: 50%;
-  box-sizing: border-box;
-  border: none;
-  box-shadow: 0px 0px 50px var(--color-bg);
-}
-
-._text-path_kehli_64 {
+._text-path_160po_50 {
   font-size: var(--size-xs-font);
   letter-spacing: 6.5px;
   font-weight: 100;
   text-align: center;
   stroke-width: 0px;
+  fill: var(--color-front);
 }
 
-._statement_kehli_72 > div {
+._statement_160po_59 > div {
     text-wrap: balance;
   }
+
+._cycle-button-container_160po_65 {
+  width: 120px;
+  height: 120px;
+  transform: translate(-50%, 0%);
+  left: 50%;
+  position: relative;
+  margin: 10px;
+}
+
+._cycle-button_160po_65 {
+  position: absolute;
+  width: calc(100% - var(--margin) * 8);
+  height: calc(100% - var(--margin) * 8);
+  margin: calc(var(--margin) * 4);
+  border-radius: 50%;
+  background: var(--color-period);
+  box-sizing: border-box;
+  border: none;
+  box-shadow: 0px 0px 10px var(--color-period);
+}
 ._buttons_1dl42_1 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
