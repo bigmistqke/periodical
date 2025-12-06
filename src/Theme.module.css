@@ -27,24 +27,6 @@ body {
   --max-width: 450px;
 }
 
-* {
-  -webkit-tap-highlight-color: transparent;
-  box-sizing: border-box;
-  overscroll-behavior-y: none;
-}
-
-button {
-  font-size: inherit;
-  font-family: inherit;
-  font-weight: inherit;
-  cursor: pointer;
-}
-
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation-duration: 0.125s;
-}
-
 .dark {
   --color-front: #b7c9e9;
   --color-middle: #aab8d2;

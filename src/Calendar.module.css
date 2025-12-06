@@ -155,11 +155,13 @@
     /* Round the top left radius of the first day of period/ovulation */
     &[data-start] .indicator {
       border-top-left-radius: var(--size-radius);
+      margin-left: 0px;
     }
 
     /* Round the top right radius of the last day of period/ovulation */
     &[data-end] .indicator {
       border-top-right-radius: var(--size-radius);
+      margin-right: 1px;
     }
 
     &[data-phase='period'] .indicator {

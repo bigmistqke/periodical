@@ -1,0 +1,12 @@
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  overscroll-behavior-y: none;
+}
+
+button {
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  cursor: pointer;
+}
