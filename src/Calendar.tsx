@@ -27,7 +27,7 @@ function getDayOfTheWeek(date: Date) {
 export function Calendar() {
   const { store } = useCirkel()
 
-  const [amountOfMonths, setAmountOfMonths] = createSignal(12)
+  const [amountOfMonths, setAmountOfMonths] = createSignal(6)
   const map = new WeakMap<Element, { setIsVisible(visible: boolean): void; index: number }>()
 
   const observer = new IntersectionObserver(entries => {
@@ -35,7 +35,7 @@ export function Calendar() {
       const { setIsVisible, index } = map.get(entry.target)!
       if (entry.isIntersecting && index >= amountOfMonths() - 2) {
         setIsVisible(entry.isIntersecting)
-        setAmountOfMonths(amountOfMonths => amountOfMonths + 12)
+        setAmountOfMonths(amountOfMonths => amountOfMonths + 2)
       }
     })
   })
