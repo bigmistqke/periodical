@@ -1,3 +1,4 @@
+import postcssNesting from 'postcss-nesting'
 import devtools from 'solid-devtools/vite'
 import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
@@ -32,5 +33,10 @@ export default defineConfig({
   build: {
     target: 'esnext',
     minify: false,
+  },
+  css: {
+    postcss: {
+      plugins: [postcssNesting()],
+    },
   },
 })

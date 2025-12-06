@@ -11,10 +11,12 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "postcss-nesting": "^13.0.2",
     "solid-devtools": "^0.34.3",
     "typescript": "^5.7.2",
-    "vite": "^7.1.4",
-    "vite-plugin-solid": "^2.11.8"
+    "vite-plugin-pwa": "^1.2.0",
+    "vite-plugin-solid": "^2.11.8",
+    "vite": "^7.1.4"
   },
   "dependencies": {
     "@corvu/calendar": "^0.1.2",
@@ -24,7 +26,6 @@
     "clsx": "^2.1.1",
     "solid-icons": "^1.1.0",
     "solid-js": "^1.9.5",
-    "solid-textarea-autosize": "^0.0.5",
-    "vite-plugin-pwa": "^1.2.0"
+    "solid-textarea-autosize": "^0.0.5"
   }
 }
