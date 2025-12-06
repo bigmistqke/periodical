@@ -3586,11 +3586,11 @@ const styles$4 = {
 	past: past
 };
 
-const dark = "_dark_ec809_30";
-const light = "_light_ec809_78";
+const dark = "_dark_qmtwb_30";
+const light = "_light_qmtwb_74";
 const theme = {
 	dark: dark,
-	"deep-purple": "_deep-purple_ec809_54",
+	"deep-purple": "_deep-purple_qmtwb_52",
 	light: light
 };
 
@@ -4159,16 +4159,10 @@ function CycleStartModal(props) {
       return (() => {
         var _el$ = _tmpl$$4();
         insert(_el$, createComponent(Modal.Button, {
-          style: {
-            "border-color": "var(--color-red)"
-          },
           onClick: () => modal()?.close(),
           children: "cancel"
         }), null);
         insert(_el$, createComponent(Modal.Button, {
-          style: {
-            "border-color": "var(--color-green)"
-          },
           onClick: () => {
             setStore("entries", produce((entries) => entries.push({
               date: addDays(normalizeDate(/* @__PURE__ */ new Date()), day())
