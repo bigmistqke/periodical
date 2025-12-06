@@ -1,10 +1,10 @@
 import { For } from 'solid-js'
+import { useCirkel } from './CirkelStoreContext'
 import styles from './Settings.module.css'
-import { useStore } from './StoreContext'
 import theme from './Theme.module.css'
 
 export function Settings() {
-  const { store, setStore } = useStore()
+  const { store, setStore } = useCirkel()
   return (
     <div class={styles.settings}>
       <header>

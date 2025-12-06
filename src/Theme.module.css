@@ -1,4 +1,11 @@
 body {
+  margin: 0px;
+  padding: 0px;
+  font-style: normal;
+  font-weight: 300;
+  font-family: 'Inter Tight', sans-serif;
+  font-optical-sizing: auto;
+
   --z-menu-modal: 10;
   --z-navigation: 5;
   --z-indicator: 2;
@@ -14,6 +21,12 @@ body {
   --size-radius: 10px;
   --size-row: 50px;
   --margin: 10px;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  overscroll-behavior-y: none;
 }
 
 ::view-transition-old(root),

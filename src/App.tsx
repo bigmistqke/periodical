@@ -3,15 +3,15 @@ import clsx from 'clsx'
 import { createStore } from 'solid-js/store'
 import styles from './App.module.css'
 import { Calendar } from './Calendar'
+import { CirkelStore, CirkeStoreContext } from './CirkelStoreContext'
 import { Home } from './Home'
-import { modals } from './modals'
+import { modals } from './modals/modals'
 import { Navigation } from './Navigation'
-import { Store, StoreContext } from './StoreContext'
 import theme from './Theme.module.css'
 import { addDays, normalizeDate } from './utils'
 
 export default function () {
-  const [store, setStore] = createStore<Store>({
+  const [store, setStore] = createStore<CirkelStore>({
     settings: {
       cycle: {
         cycleDuration: 25,
@@ -27,12 +27,12 @@ export default function () {
 
   return (
     <div class={clsx(styles.page, theme[store.settings.app.theme])}>
-      <StoreContext.Provider value={{ store, setStore }}>
+      <CirkeStoreContext.Provider value={{ store, setStore }}>
         <modals.menu.Modal />
         <modals.cycleStart.Modal />
         <Router
           root={props => {
-            const transition = function (fnThatChangesTheDOM) {
+            const transition = function (fnThatChangesTheDOM: ViewTransitionUpdateCallback) {
               // In case the API is not yet supported
               if (!document.startViewTransition) {
                 return fnThatChangesTheDOM()
@@ -62,7 +62,7 @@ export default function () {
           <Route path="/" component={Home} />
           <Route path="/calendar" component={Calendar} />
         </Router>
-      </StoreContext.Provider>
+      </CirkeStoreContext.Provider>
     </div>
   )
 }

@@ -2,8 +2,8 @@ import CorvuCalendar from '@corvu/calendar'
 import clsx from 'clsx'
 import { createMemo, createSignal, Index, onMount, Show } from 'solid-js'
 import styles from './Calendar.module.css'
+import { useCirkel } from './CirkelStoreContext'
 import { ovulationDuration } from './constants'
-import { useStore } from './StoreContext'
 import theme from './Theme.module.css'
 import { dayOfOvulation, dayOfPeriod, isSameDay, isSameDayOrBefore } from './utils'
 
@@ -26,7 +26,7 @@ function getDayOfTheWeek(date: Date) {
 }
 
 export function Calendar() {
-  const { store } = useStore()
+  const { store } = useCirkel()
 
   const [amountOfMonths, setAmountOfMonths] = createSignal(12)
   const map = new WeakMap<Element, { setIsVisible(visible: boolean): void; index: number }>()

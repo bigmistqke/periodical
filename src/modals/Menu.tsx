@@ -1,11 +1,11 @@
 import { produce } from 'solid-js/store'
-import { Modal, ModalProps } from './components/Modal'
-import { DAY } from './constants'
-import { themes, useStore } from './StoreContext'
-import { getDayOfTheCycle, postfixOrdinal } from './utils'
+import { themes, useCirkel } from '../CirkelStoreContext'
+import { DAY } from '../constants'
+import { getDayOfTheCycle, postfixOrdinal } from '../utils'
+import { Modal, ModalProps } from './Modal'
 
 export function MenuModal(props: Omit<ModalProps, 'children'>) {
-  const { store, setStore } = useStore()
+  const { store, setStore } = useCirkel()
   return (
     <Modal {...props}>
       <Modal.Section title="Cycle Settings">

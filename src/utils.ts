@@ -1,5 +1,5 @@
+import { CirkelStore } from './CirkelStoreContext'
 import { DAY, HOUR, ovulationDuration } from './constants'
-import { Store } from './StoreContext'
 
 // From https://github.com/corvudev/corvu/blob/ff79bca96ead89a703637c0738191e20e1ffa67d/packages/calendar/src/utils.ts
 
@@ -30,7 +30,7 @@ export function addDays(date: Date, amount: number) {
   return new Date(date.getTime() + amount * DAY)
 }
 
-export function getDayOfTheCycle(store: Store, date: Date) {
+export function getDayOfTheCycle(store: CirkelStore, date: Date) {
   let last = store.entries[store.entries.length - 1].date
   let lastTime = last.getTime()
   const normalizedDate = normalizeDate(date).getTime()
@@ -47,17 +47,17 @@ export function getDayOfTheCycle(store: Store, date: Date) {
   return dayOfTheCycle
 }
 
-export function getDaysUntilCycleCompletes(store: Store, date: Date) {
+export function getDaysUntilCycleCompletes(store: CirkelStore, date: Date) {
   return store.settings.cycle.cycleDuration - getDayOfTheCycle(store, date)
 }
 
-export function isDayInPeriod(store: Store, date: Date) {
+export function isDayInPeriod(store: CirkelStore, date: Date) {
   const dayOfTheCycle = getDayOfTheCycle(store, date)
 
   return dayOfTheCycle > 0 && dayOfTheCycle < store.settings.cycle.periodDuration
 }
 
-export function dayOfPeriod(store: Store, date: Date) {
+export function dayOfPeriod(store: CirkelStore, date: Date) {
   const dayOfTheCycle = getDayOfTheCycle(store, date)
 
   if (dayOfTheCycle > store.settings.cycle.periodDuration - 1) {
@@ -67,13 +67,13 @@ export function dayOfPeriod(store: Store, date: Date) {
   return dayOfTheCycle
 }
 
-export function isDayInOvulation(store: Store, date: Date) {
+export function isDayInOvulation(store: CirkelStore, date: Date) {
   const dayOfTheCycle = getDayOfTheCycle(store, date)
   const center = Math.floor(store.settings.cycle.cycleDuration / 2)
   return dayOfTheCycle < center && dayOfTheCycle > center - 4
 }
 
-export function dayOfOvulation(store: Store, date: Date) {
+export function dayOfOvulation(store: CirkelStore, date: Date) {
   const dayOfTheCycle = getDayOfTheCycle(store, date)
   const center = Math.floor(store.settings.cycle.cycleDuration / 2)
 

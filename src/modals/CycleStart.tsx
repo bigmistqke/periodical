@@ -1,13 +1,13 @@
 import { mergeRefs } from '@solid-primitives/refs'
 import { createSignal } from 'solid-js'
 import { produce } from 'solid-js/store'
-import { Modal, ModalProps } from './components/Modal'
-import styles from './ModalCycleStart.module.css'
-import { useStore } from './StoreContext'
-import { addDays, formatRelativeDay, normalizeDate } from './utils'
+import { useCirkel } from '../CirkelStoreContext'
+import { addDays, formatRelativeDay, normalizeDate } from '../utils'
+import styles from './CycleStart.module.css'
+import { Modal, ModalProps } from './Modal'
 
 export function CycleStartModal(props: Omit<ModalProps, 'children'>) {
-  const { store, setStore } = useStore()
+  const { store, setStore } = useCirkel()
   const [day, setDay] = createSignal(0)
   const [modal, setModal] = createSignal<HTMLDialogElement>()
   return (

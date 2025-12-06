@@ -7,7 +7,7 @@ export interface Entry {
   date: Date
 }
 
-export interface Store {
+export interface CirkelStore {
   settings: {
     cycle: {
       cycleDuration: number
@@ -21,13 +21,13 @@ export interface Store {
   entries: Array<Entry>
 }
 
-export const StoreContext = createContext<{
-  store: Store
-  setStore: SetStoreFunction<Store>
+export const CirkeStoreContext = createContext<{
+  store: CirkelStore
+  setStore: SetStoreFunction<CirkelStore>
 }>()
 
-export function useStore() {
-  const context = useContext(StoreContext)
+export function useCirkel() {
+  const context = useContext(CirkeStoreContext)
   if (!context) {
     throw new Error('StoreContext is undefined')
   }

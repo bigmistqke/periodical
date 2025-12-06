@@ -1,7 +1,7 @@
 import { createMemo, createSignal } from 'solid-js'
+import { useCirkel } from './CirkelStoreContext'
 import styles from './Home.module.css'
-import { modals } from './modals'
-import { useStore } from './StoreContext'
+import { modals } from './modals/modals'
 import {
   getDayOfTheCycle,
   getDaysUntilCycleCompletes,
@@ -15,7 +15,7 @@ new ResizeObserver(() => setBounds(document.body.getBoundingClientRect())).obser
 const BUTTON_SIZE = 80
 
 export function Home() {
-  const { store } = useStore()
+  const { store } = useCirkel()
   const svgHeight = createMemo(() => (bounds().height / 64) * 19)
 
   function toPercentageModulo(value: number) {
