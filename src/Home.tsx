@@ -1,4 +1,4 @@
-import { createMemo, createSignal, Match, Switch } from 'solid-js'
+import { createMemo, createSignal, Index, Match, Switch } from 'solid-js'
 import { useCirkel } from './CirkelStoreContext'
 import styles from './Home.module.css'
 import { modals } from './modals/modals'
@@ -65,7 +65,14 @@ export function Home() {
 
   return (
     <div class={styles.home} style={{ '--svg-height': `${svgHeight()}px` }}>
-      <div style={{ background: createGradient() }} class={styles.gradient} />
+      <div class={styles.timeline}>
+        <div class={styles.ruler}>
+          <Index each={Array.from({ length: store.settings.cycle.cycleDuration })}>
+            {() => <div />}
+          </Index>
+        </div>
+        <div style={{ background: createGradient() }} class={styles.gradient} />
+      </div>
       <section class={styles.main}>
         <section>
           <em>{postfixOrdinal(getDayOfTheCycle(store, store.currentDate) + 1)} day</em>
