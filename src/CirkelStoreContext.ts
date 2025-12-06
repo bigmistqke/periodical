@@ -8,6 +8,10 @@ export interface Entry {
   date: Date
 }
 
+export interface SerializedEntry {
+  date: number
+}
+
 export interface CirkelStore {
   settings: {
     cycle: {
@@ -21,6 +25,21 @@ export interface CirkelStore {
   }
   currentDate: Date
   entries: Array<Entry>
+}
+
+export interface SerializedCirkelStore {
+  settings: {
+    cycle: {
+      cycleDuration: number
+      periodDuration: number
+      ovulationDuration: number
+    }
+    app: {
+      theme: (typeof themes)[number]
+    }
+  }
+  currentDate: number
+  entries: Array<SerializedEntry>
 }
 
 export const CirkeStoreContext = createContext<{
