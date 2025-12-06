@@ -3571,12 +3571,12 @@ var Calendar$1 = Object.assign(Root_default, {
 });
 var index_default = Calendar$1;
 
-const calendarContainer = "_calendarContainer_acxfx_1";
-const calendar = "_calendar_acxfx_1";
-const cell = "_cell_acxfx_86";
-const indicator = "_indicator_acxfx_96";
-const today = "_today_acxfx_127";
-const past = "_past_acxfx_132";
+const calendarContainer = "_calendarContainer_btgtr_1";
+const calendar = "_calendar_btgtr_1";
+const cell = "_cell_btgtr_86";
+const indicator = "_indicator_btgtr_96";
+const today = "_today_btgtr_127";
+const past = "_past_btgtr_132";
 const styles$4 = {
 	calendarContainer: calendarContainer,
 	calendar: calendar,
@@ -3586,8 +3586,8 @@ const styles$4 = {
 	past: past
 };
 
-const dark = "_dark_pcm6a_48";
-const light = "_light_pcm6a_73";
+const dark = "_dark_ska8c_30";
+const light = "_light_ska8c_55";
 const theme = {
 	dark: dark,
 	light: light
