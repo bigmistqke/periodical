@@ -64,7 +64,7 @@ export function Home() {
   }
 
   return (
-    <div class={styles.overview} style={{ '--svg-height': `${svgHeight()}px` }}>
+    <div class={styles.home} style={{ '--svg-height': `${svgHeight()}px` }}>
       <div style={{ background: createGradient() }} class={styles.gradient} />
       <section class={styles.main}>
         <section>
@@ -107,137 +107,28 @@ export function Home() {
         </section>
       </section>
       <section>
-        <button class={styles['cycle-button']} onClick={() => modals.cycleStart.modal()?.show()} />
-        <svg
-          width={bounds().width}
-          height={svgHeight() + BUTTON_SIZE}
-          viewBox={`0 -${BUTTON_SIZE / 2} ${bounds().width} ${svgHeight()}`}
-        >
-          <defs>
-            <path
-              fill-rule="evenodd"
-              id="MyPath"
-              d={halfCirclePath(bounds().width / 2, 0, (4 * BUTTON_SIZE) / 5)}
-              stroke="white"
-            />
-          </defs>
-
-          <text>
-            <textPath
-              class={styles['text-path']}
-              href="#MyPath"
-              stroke="white"
-              startOffset="25px"
-              textLength="160px"
-            >
-              a new cycle
-            </textPath>
-          </text>
-          <line
-            x1={0}
-            x2={bounds().width}
-            y1={0}
-            y2={0}
-            stroke="var(--color-border)"
-            stroke-width="1px"
+        <div class={styles['cycle-button-container']}>
+          <button
+            onClick={() => modals.cycleStart.modal()?.show()}
+            class={styles['cycle-button']}
           />
-          <line
-            x1={bounds().width / 2}
-            x2={0}
-            y1={0}
-            y2={svgHeight() / 4}
-            stroke="var(--color-border)"
-            stroke-width="1px"
-          />
-          <line
-            x1={bounds().width / 2}
-            x2={0}
-            y1={0}
-            y2={svgHeight() / 2}
-            stroke="var(--color-border)"
-            stroke-width="1px"
-          />
-          <line
-            x1={bounds().width / 2}
-            x2={0}
-            y1={0}
-            y2={(3 * svgHeight()) / 4}
-            stroke="var(--color-border)"
-            stroke-width="1px"
-          />
-          <line
-            x1={bounds().width / 2}
-            x2={0}
-            y1={0}
-            y2={svgHeight()}
-            stroke="var(--color-border)"
-            stroke-width="1px"
-          />
-          <line
-            x1={bounds().width / 2}
-            x2={0}
-            y1={0}
-            y2={svgHeight()}
-            stroke="var(--color-border)"
-            stroke-width="1px"
-          />
-          <line
-            x1={bounds().width / 2}
-            x2={bounds().width / 4}
-            y1={0}
-            y2={svgHeight()}
-            stroke="var(--color-border)"
-            stroke-width="1px"
-          />
-          <line
-            x1={bounds().width / 2}
-            x2={bounds().width / 2}
-            y1={0}
-            y2={svgHeight()}
-            stroke="var(--color-border)"
-            stroke-width="1px"
-          />
-          <line
-            x1={bounds().width / 2}
-            x2={(3 * bounds().width) / 4}
-            y1={0}
-            y2={svgHeight()}
-            stroke="var(--color-border)"
-            stroke-width="1px"
-          />
-          <line
-            x1={bounds().width / 2}
-            x2={bounds().width}
-            y1={0}
-            y2={svgHeight()}
-            stroke="var(--color-border)"
-            stroke-width="1px"
-          />
-          <line
-            x1={bounds().width / 2}
-            x2={bounds().width}
-            y1={0}
-            y2={svgHeight() / 4}
-            stroke="var(--color-border)"
-            stroke-width="1px"
-          />
-          <line
-            x1={bounds().width / 2}
-            x2={bounds().width}
-            y1={0}
-            y2={svgHeight() / 2}
-            stroke="var(--color-border)"
-            stroke-width="1px"
-          />
-          <line
-            x1={bounds().width / 2}
-            x2={bounds().width}
-            y1={0}
-            y2={(3 * svgHeight()) / 4}
-            stroke="var(--color-border)"
-            stroke-width="1px"
-          />
-        </svg>
+          <svg width={120} height={120} viewBox={`0 0 120 120`}>
+            <defs>
+              <path fill-rule="evenodd" id="MyPath" d={halfCirclePath(60, 60, 40)} stroke="white" />
+            </defs>
+            <text>
+              <textPath
+                class={styles['text-path']}
+                href="#MyPath"
+                stroke="white"
+                startOffset="25px"
+                textLength="90px"
+              >
+                a new cycle
+              </textPath>
+            </text>
+          </svg>
+        </div>
       </section>
     </div>
   )

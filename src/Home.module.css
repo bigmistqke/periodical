@@ -1,8 +1,10 @@
-.overview {
+.home {
   overflow: hidden;
   display: grid;
-  grid-template-rows: calc(var(--size-row) * 2) 1fr var(--svg-height);
-  height: 100%;
+  grid-template-rows: calc(var(--size-row) * 2) 1fr calc(
+      120px + var(--margin) * 2 + var(--size-row)
+    );
+  height: calc(100% - var(--size-row) + var(--margin) * 2);
 
   & section {
     position: relative;
@@ -45,32 +47,38 @@
   }
 }
 
-.cycle-button {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  left: 50vw;
-  top: 80px;
-  transform: translate(-50%, -50%);
-  padding: 2px;
-  display: grid;
-  background: var(--color-period);
-  border-radius: 50%;
-  box-sizing: border-box;
-  border: none;
-  box-shadow: 0px 0px 50px var(--color-bg);
-}
-
 .text-path {
   font-size: var(--size-xs-font);
   letter-spacing: 6.5px;
   font-weight: 100;
   text-align: center;
   stroke-width: 0px;
+  fill: var(--color-front);
 }
 
 .statement {
   & > div {
     text-wrap: balance;
   }
+}
+
+.cycle-button-container {
+  width: 120px;
+  height: 120px;
+  transform: translate(-50%, 0%);
+  left: 50%;
+  position: relative;
+  margin: 10px;
+}
+
+.cycle-button {
+  position: absolute;
+  width: calc(100% - var(--margin) * 8);
+  height: calc(100% - var(--margin) * 8);
+  margin: calc(var(--margin) * 4);
+  border-radius: 50%;
+  background: var(--color-period);
+  box-sizing: border-box;
+  border: none;
+  box-shadow: 0px 0px 10px var(--color-period);
 }
