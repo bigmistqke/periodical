@@ -78,7 +78,7 @@ export function MenuModal(props: Omit<ModalProps, 'children'>) {
               return themes[index]
             })
           }
-          title={<>{store.settings.app.theme} theme</>}
+          title={<>{store.settings.app.theme.split('-').join(' ')}</>}
         />
       </Modal.Section>
     </Modal>
