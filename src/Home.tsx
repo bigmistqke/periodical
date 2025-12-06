@@ -1,5 +1,6 @@
 import { createMemo, createSignal } from 'solid-js'
 import styles from './Home.module.css'
+import { modals } from './modals'
 import { useStore } from './StoreContext'
 import {
   getDayOfTheCycle,
@@ -73,7 +74,7 @@ export function Home() {
         </section>
       </section>
       <section>
-        <button class={styles['cycle-button']} />
+        <button class={styles['cycle-button']} onClick={() => modals.cycleStart.modal()?.show()} />
         <svg
           width={bounds().width}
           height={svgHeight() + BUTTON_SIZE / 2}

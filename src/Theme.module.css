@@ -16,13 +16,18 @@ body {
   --margin: 10px;
 }
 
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.125s;
+}
+
 .dark {
   --color-bg-hover: hsl(0, 0%, 89%);
   --color-bg-focus-visible: hsl(0, 0%, 95%);
   --color-bg-selected: hsl(0, 0%, 89%);
   --color-border-focus-visible: hsl(234, 100%, 50%);
   --color-bg-today: hsl(0, 0%, 94%);
-  --color-bg-calendar: #0a0b1f;
+  --color-bg-calendar: transparent; /* #0a0b1f; */
 
   --color-bg: #0b0816;
   --color-bg-semi-transparent: #0b081685;

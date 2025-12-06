@@ -1,16 +1,14 @@
-import { Route, Router } from '@solidjs/router'
+import { Route, Router, useBeforeLeave } from '@solidjs/router'
 import clsx from 'clsx'
-import { createSignal } from 'solid-js'
 import { createStore } from 'solid-js/store'
 import styles from './App.module.css'
 import { Calendar } from './Calendar'
 import { Home } from './Home'
-import { Menu } from './Menu'
+import { modals } from './modals'
 import { Navigation } from './Navigation'
-import { Settings } from './Settings'
 import { Store, StoreContext } from './StoreContext'
 import theme from './Theme.module.css'
-import { normalizeDate } from './utils'
+import { addDays, normalizeDate } from './utils'
 
 export default function () {
   const [store, setStore] = createStore<Store>({
@@ -23,29 +21,46 @@ export default function () {
         theme: 'dark',
       },
     },
-    entries: [{ date: normalizeDate(new Date()) }],
+    entries: [{ date: addDays(normalizeDate(new Date()), -5) }],
     currentDate: normalizeDate(new Date()),
   })
-
-  const [menu, setMenu] = createSignal<HTMLDialogElement | undefined>(undefined)
-
-  // let menu: HTMLDialogElement = null!
 
   return (
     <div class={clsx(styles.page, theme[store.settings.app.theme])}>
       <StoreContext.Provider value={{ store, setStore }}>
-        <Menu ref={setMenu} />
+        <modals.menu.Modal />
+        <modals.cycleStart.Modal />
         <Router
-          root={props => (
-            <>
-              {props.children}
-              <Navigation menu={menu()!} />
-            </>
-          )}
+          root={props => {
+            const transition = function (fnThatChangesTheDOM) {
+              // In case the API is not yet supported
+              if (!document.startViewTransition) {
+                return fnThatChangesTheDOM()
+              }
+
+              // Transition the changes in the DOM
+              const transition = document.startViewTransition(fnThatChangesTheDOM)
+            }
+
+            useBeforeLeave(e => {
+              // Stop the inmediate navigation and DOM change
+              e.preventDefault()
+
+              // Perform the action that triggers a DOM change
+              transition(() => {
+                e.retry(true)
+              })
+            })
+            return (
+              <>
+                {props.children}
+                <Navigation menu={modals.menu.modal()!} />
+              </>
+            )
+          }}
         >
           <Route path="/" component={Home} />
           <Route path="/calendar" component={Calendar} />
-          <Route path="/settings" component={Settings} />
         </Router>
       </StoreContext.Provider>
     </div>

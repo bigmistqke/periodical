@@ -1,28 +1,15 @@
-import { mergeRefs } from '@solid-primitives/refs'
-import { FiArrowLeft, FiArrowRight } from 'solid-icons/fi'
-import { JSX, Ref } from 'solid-js'
 import { produce } from 'solid-js/store'
+import { Modal, ModalProps } from './components/Modal'
 import { DAY } from './constants'
-import styles from './Menu.module.css'
 import { themes, useStore } from './StoreContext'
 import { getDayOfTheCycle, postfixOrdinal } from './utils'
 
-export function Menu(props: { ref: Ref<HTMLDialogElement> }) {
+export function MenuModal(props: Omit<ModalProps, 'children'>) {
   const { store, setStore } = useStore()
-
-  let menu: HTMLDialogElement = null!
-
   return (
-    <dialog
-      ref={mergeRefs(element => (menu = element), props.ref)}
-      class={styles.menu}
-      onClick={element => element.target === element.currentTarget && menu.close()}
-    >
-      <section class={styles.section}>
-        <header>
-          <h3>Cycle Settings</h3>
-        </header>
-        <BinaryOption
+    <Modal {...props}>
+      <Modal.Section title="Cycle Settings">
+        <Modal.BinaryOption
           disabled={store.settings.cycle.cycleDuration === 1 ? 'left' : undefined}
           onLeftClick={() => setStore(produce(store => store.settings.cycle.cycleDuration--))}
           onRightClick={() => setStore(produce(store => store.settings.cycle.cycleDuration++))}
@@ -33,7 +20,7 @@ export function Menu(props: { ref: Ref<HTMLDialogElement> }) {
             </div>
           }
         />
-        <BinaryOption
+        <Modal.BinaryOption
           disabled={store.settings.cycle.periodDuration === 1 ? 'left' : undefined}
           onLeftClick={() => setStore(produce(store => store.settings.cycle.periodDuration--))}
           onRightClick={() => setStore(produce(store => store.settings.cycle.periodDuration++))}
@@ -44,7 +31,7 @@ export function Menu(props: { ref: Ref<HTMLDialogElement> }) {
             </div>
           }
         />
-        <BinaryOption
+        <Modal.BinaryOption
           disabled={getDayOfTheCycle(store, store.currentDate) === 0 ? 'left' : undefined}
           onLeftClick={() =>
             setStore(
@@ -69,12 +56,9 @@ export function Menu(props: { ref: Ref<HTMLDialogElement> }) {
             </div>
           }
         />
-      </section>
-      <section>
-        <header>
-          <h3>App Settings</h3>
-        </header>
-        <BinaryOption
+      </Modal.Section>
+      <Modal.Section title="App Settings">
+        <Modal.BinaryOption
           onLeftClick={() =>
             setStore(
               produce(store => {
@@ -97,41 +81,7 @@ export function Menu(props: { ref: Ref<HTMLDialogElement> }) {
           }
           title={<>{store.settings.app.theme} theme</>}
         />
-      </section>
-      <button onClick={() => menu!.close('')}>close</button>
-    </dialog>
-  )
-}
-
-const ARROW_SIZE = 36
-
-function BinaryOption(props: {
-  title: JSX.Element
-  onLeftClick(): void
-  onRightClick(): void
-  disabled?: 'left' | 'right' | boolean
-}) {
-  return (
-    <div class={styles['binary-option']}>
-      <div class={styles['label-container']}>
-        <div class={styles.icon}>
-          <FiArrowLeft size={ARROW_SIZE} />
-        </div>
-        <div class={styles.label}>{props.title}</div>
-        <div class={styles.icon}>
-          <FiArrowRight size={ARROW_SIZE} />
-        </div>
-      </div>
-      <div class={styles['button-container']}>
-        <button
-          disabled={props.disabled === 'left' || props.disabled === true}
-          onClick={props.onLeftClick}
-        />
-        <button
-          disabled={props.disabled === 'right' || props.disabled === true}
-          onClick={props.onRightClick}
-        />
-      </div>
-    </div>
+      </Modal.Section>
+    </Modal>
   )
 }

@@ -26,6 +26,10 @@ export function addHour(date: Date) {
   return new Date(date.getTime() + HOUR)
 }
 
+export function addDays(date: Date, amount: number) {
+  return new Date(date.getTime() + amount * DAY)
+}
+
 export function getDayOfTheCycle(store: Store, date: Date) {
   let last = store.entries[store.entries.length - 1].date
   let lastTime = last.getTime()
@@ -88,6 +92,11 @@ export function dayOfOvulation(store: Store, date: Date) {
 
 const ordinalRules = new Intl.PluralRules('en-US')
 const cardinalRules = new Intl.PluralRules('en-US', { type: 'cardinal' })
+const rtf = new Intl.RelativeTimeFormat('en-US', { numeric: 'auto' })
+
+export function formatRelativeDay(value: number) {
+  return rtf.format(value, 'day')
+}
 
 export function postfixOrdinal(value: number) {
   // select() can return any of four tags for ordinal numbers in English, representing each of the allowed forms:

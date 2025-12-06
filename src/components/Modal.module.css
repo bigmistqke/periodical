@@ -1,4 +1,4 @@
-.menu {
+.modal {
   position: fixed;
   z-index: var(--z-menu-modal);
   left: 0;
@@ -15,9 +15,36 @@
   background-color: transparent;
   font-size: var(--size-s-font);
   align-content: flex-end;
+  border: 0;
+  transition: opacity 0.25s, translate 0.25s, overlay 0.25s allow-discrete,
+    display 0.25s allow-discrete;
+
+  & > * {
+    transition: translate 0.25s;
+  }
+
+  &[open] {
+    translate: 0px;
+    opacity: 1;
+
+    & > * {
+      @starting-style {
+        translate: 0 1em;
+      }
+    }
+
+    @starting-style {
+      opacity: 0;
+    }
+  }
 
   &:not([open]) {
     display: none;
+    opacity: 0;
+    pointer-events: none;
+    & > * {
+      translate: 0 1em;
+    }
   }
 
   &::before {
@@ -32,29 +59,6 @@
     opacity: 0.9;
     z-index: -1;
     mix-blend-mode: darken;
-  }
-
-  & > section,
-  & > button {
-    background-color: var(--color-bg);
-    color: var(--color-front);
-    border: 1px solid var(--color-border);
-    border-radius: var(--size-radius);
-
-    & > header {
-      padding-block: calc(var(--margin) * 2);
-      display: grid;
-      align-items: center;
-      justify-content: center;
-      border-bottom: 1px solid var(--color-border);
-
-      & > h3 {
-        text-align: center;
-        font-weight: inherit;
-        font-size: inherit;
-        margin: 0px;
-      }
-    }
   }
 
   & > button {
@@ -104,6 +108,37 @@
     & > button {
       background-color: transparent;
       border: none;
+    }
+  }
+}
+
+.section,
+.button {
+  background-color: var(--color-bg);
+  color: var(--color-front);
+  border: 1px solid var(--color-border);
+  border-radius: var(--size-radius);
+  font-size: var(--size-s-font);
+}
+
+.section {
+  background-color: var(--color-bg);
+  color: var(--color-front);
+  border: 1px solid var(--color-border);
+  border-radius: var(--size-radius);
+
+  & > header {
+    padding-block: calc(var(--margin) * 2);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--color-border);
+
+    & > h3 {
+      text-align: center;
+      font-weight: inherit;
+      font-size: inherit;
+      margin: 0px;
     }
   }
 }
