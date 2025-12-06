@@ -4415,7 +4415,8 @@ function App() {
       },
       get children() {
         return [createComponent(modals.menu.Modal, {}), createComponent(modals.cycleStart.Modal, {}), createComponent(Router, {
-          base: "./",
+          url: "./",
+          base: "/",
           root: (props) => {
             const transition = function(fnThatChangesTheDOM) {
               if (!document.startViewTransition) {
