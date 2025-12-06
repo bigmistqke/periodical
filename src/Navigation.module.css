@@ -1,5 +1,4 @@
 .navigation-container {
-  background: radial-gradient(ellipse at 50% 100%, var(--color-bg) 33%, transparent 75%);
   z-index: var(--z-navigation);
   position: fixed;
   bottom: 0px;
