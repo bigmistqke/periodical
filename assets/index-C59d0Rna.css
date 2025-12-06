@@ -304,7 +304,7 @@
   }
 @font-face {
   font-family: cirkel;
-  src: url(assets/cirkel.ttf);
+  src: url(./cirkel-D16f78vV.ttf);
 }
 
 body {
@@ -354,7 +354,7 @@ button {
   animation-duration: 0.125s;
 }
 
-._dark_afx12_53 {
+._dark_1tkwa_53 {
   --color-front: #b7c9e9;
   --color-middle: #aab8d2;
   --color-period: #d53f3f;
@@ -379,7 +379,7 @@ button {
   --font-family: cirkel;
 }
 
-._light_afx12_78 {
+._light_1tkwa_78 {
   --color-front: #212327;
   --color-middle: #32363e;
   --color-period: #d53f3f;
