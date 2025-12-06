@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import { createMemo, createSignal, Index, onMount, Show } from 'solid-js'
 import styles from './Calendar.module.css'
 import { useCirkel } from './CirkelStoreContext'
-import theme from './Theme.module.css'
+import global from './Global.module.css'
 import { dayOfOvulation, dayOfPeriod, isSameDay, isSameDayOrBefore } from './utils'
 
 const { format: formatWeekdayLong } = new Intl.DateTimeFormat('en', {
@@ -69,7 +69,7 @@ export function Calendar() {
                 >
                   <Show when={isVisible()}>
                     <header>
-                      <CorvuCalendar.Label class={theme.title}>
+                      <CorvuCalendar.Label class={global.title}>
                         {formatMonth(monthProps().month)} {monthProps().month.getFullYear()}
                       </CorvuCalendar.Label>
                     </header>

@@ -6,21 +6,25 @@ body {
   font-family: 'Inter Tight', sans-serif;
   font-optical-sizing: auto;
 
+  --scalar: 0.8;
+
   --z-menu-modal: 10;
   --z-navigation: 5;
   --z-indicator: 2;
   --z-border-today: 3;
 
-  --size-xs-font: 12pt;
-  --size-s-font: 16pt;
-  --size-m-font: 18pt;
-  --size-l-font: 24pt;
-  --size-xl-font: 36pt;
-  --size-xxl-font: 48pt;
-  --size-xxxl-font: 64pt;
-  --size-radius: 10px;
-  --size-row: 50px;
+  --size-xs-font: calc(12pt * var(--scalar));
+  --size-s-font: calc(16pt * var(--scalar));
+  --size-m-font: calc(18pt * var(--scalar));
+  --size-l-font: calc(24pt * var(--scalar));
+  --size-xl-font: calc(36pt * var(--scalar));
+  --size-xxl-font: calc(48pt * var(--scalar));
+  --size-xxxl-font: calc(64pt * var(--scalar));
+  --size-radius: calc(10px * var(--scalar));
+  --size-row: calc(50px * var(--scalar));
+
   --margin: 10px;
+  --max-width: 450px;
 }
 
 * {
@@ -35,32 +39,41 @@ body {
 }
 
 .dark {
-  --color-bg-hover: hsl(0, 0%, 89%);
-  --color-bg-focus-visible: hsl(0, 0%, 95%);
-  --color-bg-selected: hsl(0, 0%, 89%);
-  --color-border-focus-visible: hsl(234, 100%, 50%);
-  --color-bg-today: hsl(0, 0%, 94%);
-  --color-bg-calendar: transparent; /* #0a0b1f; */
-
-  --color-bg: #0b0816;
-  --color-bg-semi-transparent: #0b081685;
-  --color-bg-transparent: #0b081600;
-
-  --color-front: #dee6f5;
-  --color-middle: #9ca5b7;
-  --color-period: #fa4646;
+  --color-front: #b7c9e9;
+  --color-middle: #aab8d2;
+  --color-period: #d53f3f;
   --color-ovulation: #37b9f5;
-  --color-bg-gradient: #d9d9d9;
   --color-border: #55546c;
 
-  background: var(--color-bg);
-  color: var(--color-front);
-  font-size: var(--size-m-font);
+  --color-bg: #070824;
+  --color-bg-semi-transparent: #0b081685;
+  --color-bg-transparent: #0b081600;
+  --color-bg-today: hsl(0, 0%, 94%);
+  --color-bg-calendar: transparent;
+  --color-bg-gradient: #d9d9d9;
+
+  --bg-modal-underlay: linear-gradient(
+    to top,
+    var(--color-bg) 50%,
+    var(--color-bg-semi-transparent)
+  );
+  --filter-past-indicator: brightness(50%);
 }
 
-.title {
-  font-size: 1.25rem;
-  line-height: 1.25rem;
-  font-family: 'Inter Tight', sans-serif;
-  font-optical-sizing: auto;
+.light {
+  --color-front: #212327;
+  --color-middle: #32363e;
+  --color-period: #d53f3f;
+  --color-ovulation: #37b9f5;
+  --color-border: #55546c;
+
+  --color-bg: #d3d3d3;
+  --color-bg-semi-transparent: #0b081685;
+  --color-bg-transparent: #0b081600;
+  --color-bg-today: hsl(0, 0%, 94%);
+  --color-bg-calendar: transparent;
+  --color-bg-gradient: #d9d9d9;
+
+  --bg-modal-underlay: #d3d3d3;
+  --filter-past-indicator: brightness(175%) saturate(50%);
 }

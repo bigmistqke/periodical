@@ -6,6 +6,7 @@ import { Modal, ModalProps } from './Modal'
 
 export function MenuModal(props: Omit<ModalProps, 'children'>) {
   const { store, setStore } = useCirkel()
+
   return (
     <Modal {...props}>
       <Modal.Section title="Cycle Settings">
@@ -60,24 +61,22 @@ export function MenuModal(props: Omit<ModalProps, 'children'>) {
       <Modal.Section title="App Settings">
         <Modal.BinaryOption
           onLeftClick={() =>
-            setStore(
-              produce(store => {
-                const index =
-                  (store.settings.app.theme.indexOf(store.settings.app.theme) - 1) % themes.length
-                store.settings.app.theme = themes[index]
-              }),
-            )
+            setStore('settings', 'app', 'theme', theme => {
+              let index = themes.indexOf(theme)
+              index -= 1
+              if (index < 0) {
+                index = themes.length - 1
+              }
+              return themes[index]
+            })
           }
           onRightClick={() =>
-            setStore(
-              produce(store => {
-                let index = store.settings.app.theme.indexOf(store.settings.app.theme) - 1
-                if (index < 0) {
-                  index = themes.length - 1
-                }
-                store.settings.app.theme = themes[index]
-              }),
-            )
+            setStore('settings', 'app', 'theme', theme => {
+              let index = themes.indexOf(theme)
+              index += 1
+              index %= themes.length
+              return themes[index]
+            })
           }
           title={<>{store.settings.app.theme} theme</>}
         />

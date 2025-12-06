@@ -19,7 +19,7 @@ export default function () {
         ovulationDuration: 4,
       },
       app: {
-        theme: 'dark',
+        theme: 'light',
       },
     },
     entries: [{ date: addDays(normalizeDate(new Date()), -5) }],
@@ -32,8 +32,8 @@ export default function () {
         <modals.menu.Modal />
         <modals.cycleStart.Modal />
         <Router
-          url="./cirkel"
-          base="/cirkel"
+          // url="./cirkel"
+          // base="/cirkel"
           root={props => {
             const transition = function (fnThatChangesTheDOM: ViewTransitionUpdateCallback) {
               // In case the API is not yet supported

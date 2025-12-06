@@ -9,6 +9,8 @@
   overflow: hidden;
   color: var(--color-front);
   padding-inline: calc(var(--margin) * 2);
+  max-width: 450px;
+  margin-inline: auto;
 
   & > header {
     display: flex;
@@ -18,8 +20,8 @@
     font-weight: 300;
 
     & > [data-corvu-calendar-label] {
-      font-size: 1.25rem;
-      line-height: 1.25rem;
+      font-size: var(--size-l-font);
+      line-height: var(--size-l-font);
       font-family: 'Inter Tight', sans-serif;
       font-optical-sizing: auto;
       font-weight: 300;
@@ -69,7 +71,6 @@
     font-size: 0.75rem;
     line-height: 1rem;
     font-weight: inherit;
-    font-family: 'Space Mono', monospace;
     vertical-align: bottom;
     text-align: left;
     padding-inline: calc(var(--margin) / 2);
@@ -86,7 +87,6 @@
 
   & [data-corvu-calendar-cell] {
     background-color: transparent;
-    font-family: 'Space Mono', monospace;
     color: inherit;
     position: relative;
     margin: var(--margin);
@@ -106,6 +106,7 @@
       padding: var(--margin);
       font-size: var(--size-xs-font);
       line-height: var(--size-xs-font);
+      color: var(--color-middle);
     }
 
     &.today::before {
@@ -115,7 +116,7 @@
 
     &.past {
       & .indicator {
-        filter: brightness(50%);
+        filter: var(--filter-past-indicator);
       }
       &::before {
         opacity: 0.5;

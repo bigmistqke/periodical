@@ -55,7 +55,7 @@
     bottom: 0;
     right: 0;
     width: 100vw;
-    background: linear-gradient(to top, var(--color-bg) 50%, var(--color-bg-semi-transparent));
+    background: var(--bg-modal-underlay);
     opacity: 0.9;
     z-index: -1;
     mix-blend-mode: darken;

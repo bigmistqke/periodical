@@ -1,7 +1,8 @@
 import { createContext, useContext } from 'solid-js'
 import { SetStoreFunction } from 'solid-js/store'
+import themeStyles from './Theme.module.css'
 
-export const themes = ['light', 'dark'] as const
+export const themes = Object.keys(themeStyles)
 
 export interface Entry {
   date: Date

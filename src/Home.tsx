@@ -53,28 +53,8 @@ export function Home() {
     return stops.map(([color, percentage]) => [color, `${percentage}%`])
   }
 
-  function circlePath(cx: number, cy: number, r: number) {
-    return (
-      'M ' +
-      cx +
-      ' ' +
-      cy +
-      ' m -' +
-      r +
-      ', 0 a ' +
-      r +
-      ',' +
-      r +
-      ' 0 1,1 ' +
-      r * 2 +
-      ',0 a ' +
-      r +
-      ',' +
-      r +
-      ' 0 1,1 -' +
-      r * 2 +
-      ',0'
-    )
+  function halfCirclePath(cx: number, cy: number, r: number) {
+    return 'M ' + cx + ' ' + cy + ' m -' + r + ', 0 a ' + r + ',' + r + ' 0 1,1 ' + r * 2 + ', 0'
   }
 
   function createGradient() {
@@ -137,7 +117,7 @@ export function Home() {
             <path
               fill-rule="evenodd"
               id="MyPath"
-              d={circlePath(bounds().width / 2, 0, (4 * BUTTON_SIZE) / 5)}
+              d={halfCirclePath(bounds().width / 2, 0, (4 * BUTTON_SIZE) / 5)}
               stroke="white"
             />
           </defs>
@@ -147,11 +127,8 @@ export function Home() {
               class={styles['text-path']}
               href="#MyPath"
               stroke="white"
-              method="stretch"
-              startOffset={20}
-              spacing="auto"
-              letter-spacing={10}
-              font-size-adjust={20}
+              startOffset="25px"
+              textLength="155px"
             >
               a new cycle
             </textPath>
