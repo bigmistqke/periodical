@@ -17,18 +17,8 @@ export function CycleStartModal(props: Omit<ModalProps, 'children'>) {
       onClose={() => setDay(0)}
       closeSlot={
         <div class={styles.buttons}>
+          <Modal.Button onClick={() => modal()?.close()}>cancel</Modal.Button>
           <Modal.Button
-            style={{
-              'border-color': 'var(--color-red)',
-            }}
-            onClick={() => modal()?.close()}
-          >
-            cancel
-          </Modal.Button>
-          <Modal.Button
-            style={{
-              'border-color': 'var(--color-green)',
-            }}
             onClick={() => {
               setStore(
                 'entries',
