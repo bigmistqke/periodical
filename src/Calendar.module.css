@@ -84,7 +84,7 @@
     background-color: var(--color-bg-calendar);
 
     & > .cell {
-      border-right: 1px solid var(--color-border);
+      border-left: 1px solid var(--color-border);
       border-bottom: 1px solid var(--color-border);
       top: 0px;
       right: 0px;
@@ -120,8 +120,8 @@
       color: var(--color-middle);
     }
 
-    &:first-of-type > .cell {
-      border: 1px solid var(--color-border);
+    &:last-of-type > .cell {
+      border-right: 1px solid var(--color-border);
     }
 
     &.today > .cell {
@@ -130,11 +130,15 @@
     }
 
     &.past {
+      &::before {
+        opacity: 0.5;
+      }
       & .indicator {
         filter: var(--filter-past-indicator);
       }
       & > .cell {
-        opacity: 0.5;
+        border-top-color: var(--color-border-past) !important;
+        border-left-color: var(--color-border-past) !important;
       }
     }
 
@@ -236,6 +240,14 @@
 
   /* Add border-top to all first row borders */
   & tr:first-of-type [data-corvu-calendar-cell]:not(.today) > .cell {
+    border-top: 1px solid var(--color-border);
+  }
+
+  /* If the first week misses 1st day, add border-top to 1st day of second week */
+  &:not(:has(tr:first-of-type [data-corvu-calendar-cell][data-day]:nth-child(1)))
+    tr:nth-child(2)
+    [data-corvu-calendar-cell]:nth-child(1)
+    > .cell {
     border-top: 1px solid var(--color-border);
   }
 
