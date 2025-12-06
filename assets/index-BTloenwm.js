@@ -3571,11 +3571,11 @@ var Calendar$1 = Object.assign(Root_default, {
 });
 var index_default = Calendar$1;
 
-const calendarContainer = "_calendarContainer_1v42k_1";
-const calendar = "_calendar_1v42k_1";
-const indicator = "_indicator_1v42k_79";
-const today = "_today_1v42k_117";
-const past = "_past_1v42k_122";
+const calendarContainer = "_calendarContainer_4piyi_1";
+const calendar = "_calendar_4piyi_1";
+const indicator = "_indicator_4piyi_79";
+const today = "_today_4piyi_117";
+const past = "_past_4piyi_122";
 const styles$4 = {
 	calendarContainer: calendarContainer,
 	calendar: calendar,
@@ -3902,16 +3902,16 @@ function Calendar() {
   })();
 }
 
-const overview = "_overview_ydbfz_1";
-const gradient = "_gradient_ydbfz_12";
-const main = "_main_ydbfz_16";
-const statement = "_statement_ydbfz_72";
+const overview = "_overview_14ji2_1";
+const gradient = "_gradient_14ji2_12";
+const main = "_main_14ji2_16";
+const statement = "_statement_14ji2_72";
 const styles$3 = {
 	overview: overview,
 	gradient: gradient,
 	main: main,
-	"cycle-button": "_cycle-button_ydbfz_48",
-	"text-path": "_text-path_ydbfz_64",
+	"cycle-button": "_cycle-button_14ji2_48",
+	"text-path": "_text-path_14ji2_64",
 	statement: statement
 };
 
@@ -4276,7 +4276,7 @@ const modals = createModals({
   cycleStart: CycleStartModal
 });
 
-var _tmpl$$2 = /* @__PURE__ */ template(`<em> `), _tmpl$2 = /* @__PURE__ */ template(`<div>until your period ends (regularly).`), _tmpl$3 = /* @__PURE__ */ template(`<div>until day of your ovulation (maybe).`), _tmpl$4 = /* @__PURE__ */ template(`<div><div></div><section><section><em> day</em><div>of your cycle</div></section><section></section></section><section><button></button><svg><defs><path fill-rule=evenodd id=MyPath stroke=white></path></defs><text><textPath href=#MyPath stroke=white startOffset=25px textLength=155px>a new cycle</textPath></text><line x1=0 y1=0 y2=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px>`), _tmpl$5 = /* @__PURE__ */ template(`<div>until your cycle is completed`);
+var _tmpl$$2 = /* @__PURE__ */ template(`<em> `), _tmpl$2 = /* @__PURE__ */ template(`<div>until your period ends`), _tmpl$3 = /* @__PURE__ */ template(`<div>until day of your ovulation`), _tmpl$4 = /* @__PURE__ */ template(`<div><div></div><section><section><em> day</em><div>of your cycle</div></section><section></section></section><section><button></button><svg><defs><path fill-rule=evenodd id=MyPath stroke=white></path></defs><text><textPath href=#MyPath stroke=white startOffset=25px textLength=155px>a new cycle</textPath></text><line x1=0 y1=0 y2=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line x2=0 y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px></line><line y1=0 stroke=var(--color-border) stroke-width=1px>`), _tmpl$5 = /* @__PURE__ */ template(`<div>until your cycle is completed`);
 const [bounds, setBounds] = createSignal(document.body.getBoundingClientRect());
 new ResizeObserver(() => setBounds(document.body.getBoundingClientRect())).observe(document.body);
 const BUTTON_SIZE = 80;

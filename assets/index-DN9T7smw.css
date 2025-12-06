@@ -8,12 +8,12 @@
   scrollbar-width: thin;
   font-family: var(--font-family);
 }
-._calendarContainer_1v42k_1 {
+._calendarContainer_4piyi_1 {
   overflow: auto;
   height: 100%;
 }
 
-._calendar_1v42k_1 {
+._calendar_4piyi_1 {
   display: grid;
   grid-template-rows: calc(var(--size-row) * 3) 1fr;
   overflow: hidden;
@@ -30,8 +30,8 @@
     font-weight: 300;
 
     & > [data-corvu-calendar-label] {
-      font-size: var(--size-l-font);
-      line-height: var(--size-l-font);
+      font-size: var(--size-m-font);
+      line-height: var(--size-m-font);
       font-family: var(--font-family);
       font-optical-sizing: auto;
       font-weight: 300;
@@ -86,7 +86,7 @@
     padding-inline: calc(var(--margin) / 2);
   }
 
-  & ._indicator_1v42k_79 {
+  & ._indicator_4piyi_79 {
     margin-inline: -2px;
     margin-bottom: -1px;
     z-index: var(--z-indicator);
@@ -124,13 +124,13 @@
       border: 1px solid var(--color-border);
     }
 
-    &._today_1v42k_117::before {
+    &._today_4piyi_117::before {
       border: 2px solid var(--color-front);
       z-index: var(--z-border-today);
     }
 
-    &._past_1v42k_122 {
-      & ._indicator_1v42k_79 {
+    &._past_4piyi_122 {
+      & ._indicator_4piyi_79 {
         filter: var(--filter-past-indicator);
       }
       &::before {
@@ -148,31 +148,31 @@
     /*                                                                                */
     /**********************************************************************************/
 
-    &:first-of-type ._indicator_1v42k_79 {
+    &:first-of-type ._indicator_4piyi_79 {
       margin-left: -1px;
     }
 
-    &:last-of-type ._indicator_1v42k_79 {
+    &:last-of-type ._indicator_4piyi_79 {
       margin-right: 0px;
     }
 
     /* Round the top left radius of the first day of period/ovulation */
-    &[data-start] ._indicator_1v42k_79 {
+    &[data-start] ._indicator_4piyi_79 {
       border-top-left-radius: var(--size-radius);
       margin-left: -1px;
     }
 
     /* Round the top right radius of the last day of period/ovulation */
-    &[data-end] ._indicator_1v42k_79 {
+    &[data-end] ._indicator_4piyi_79 {
       border-top-right-radius: var(--size-radius);
       margin-right: 0px;
     }
 
-    &[data-phase='period'] ._indicator_1v42k_79 {
+    &[data-phase='period'] ._indicator_4piyi_79 {
       background-color: var(--color-period);
     }
 
-    &[data-phase='ovulation'] ._indicator_1v42k_79 {
+    &[data-phase='ovulation'] ._indicator_4piyi_79 {
       background-color: var(--color-ovulation);
     }
   }
@@ -220,11 +220,11 @@
       border-bottom-right-radius: var(--size-radius);
     }
 
-    &[data-day]:last-of-type ._indicator_1v42k_79 {
+    &[data-day]:last-of-type ._indicator_4piyi_79 {
       border-bottom-right-radius: var(--size-radius);
     }
 
-    &[data-day]:first-child ._indicator_1v42k_79 {
+    &[data-day]:first-child ._indicator_4piyi_79 {
       border-bottom-left-radius: calc(var(--size-radius) - 1px);
     }
   }
@@ -233,7 +233,7 @@
   &:not(:has(tr:last-of-type [data-corvu-calendar-cell][data-day]:last-child))
     tr:nth-last-child(2)
     [data-corvu-calendar-cell]:last-child {
-    & ._indicator_1v42k_79 {
+    & ._indicator_4piyi_79 {
       border-bottom-right-radius: calc(var(--size-radius) - 1px);
     }
     &::before {
@@ -248,7 +248,7 @@
   /**********************************************************************************/
 
   /* Add border-top to all first row borders */
-  & tr:first-of-type [data-corvu-calendar-cell]:not(._today_1v42k_117)::before {
+  & tr:first-of-type [data-corvu-calendar-cell]:not(._today_4piyi_117)::before {
     border-top: 1px solid var(--color-border);
   }
 
@@ -381,7 +381,7 @@ button {
   font-family: var(--font-family);
   font-optical-sizing: auto;
 }
-._overview_ydbfz_1 {
+._overview_14ji2_1 {
   overflow: hidden;
   display: grid;
   grid-template-rows: calc(var(--size-row) * 2) 1fr var(--svg-height);
@@ -392,20 +392,20 @@ button {
   }
 }
 
-._gradient_ydbfz_12 {
+._gradient_14ji2_12 {
   box-shadow: 0px 0px 25px var(--color-bg);
 }
 
-._main_ydbfz_16 {
+._main_14ji2_16 {
   display: grid;
   align-content: center;
-  font-size: var(--size-m-font);
+  font-size: var(--size-s-font);
 
   & > section {
     display: grid;
     padding-inline: calc(var(--margin) * 3);
     gap: var(--margin);
-    font-size: var(--size-l-font);
+    font-size: var(--size-m-font);
     align-content: center;
     grid-template-columns: min(100%, var(--max-width));
     justify-content: center;
@@ -417,8 +417,8 @@ button {
     }
 
     & > em {
-      font-size: var(--size-xxl-font);
-      line-height: var(--size-xxl-font);
+      font-size: var(--size-xl-font);
+      line-height: var(--size-xl-font);
       font-style: normal;
     }
 
@@ -428,7 +428,7 @@ button {
   }
 }
 
-._cycle-button_ydbfz_48 {
+._cycle-button_14ji2_48 {
   position: absolute;
   width: 70px;
   height: 70px;
@@ -444,7 +444,7 @@ button {
   box-shadow: 0px 0px 50px var(--color-bg);
 }
 
-._text-path_ydbfz_64 {
+._text-path_14ji2_64 {
   font-size: var(--size-s-font);
   letter-spacing: 6.5px;
   font-weight: 100;
@@ -452,7 +452,7 @@ button {
   stroke: var(--color-front);
 }
 
-._statement_ydbfz_72 {
+._statement_14ji2_72 {
   & > div {
     text-wrap: balance;
   }
