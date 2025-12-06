@@ -4541,10 +4541,10 @@ function App() {
       get children() {
         return [createComponent(modals.menu.Modal, {}), createComponent(modals.cycleStart.Modal, {}), createComponent(Router, {
           get url() {
-            return "cirkel";
+            return "cirkel/";
           },
           get base() {
-            return "cirkel";
+            return "cirkel/";
           },
           root: (props) => [memo(() => props.children), createComponent(Navigation, {
             get menu() {
