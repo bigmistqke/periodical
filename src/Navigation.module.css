@@ -1,11 +1,14 @@
 .navigation-container {
-  background: linear-gradient(to top, var(--color-bg) 50%, var(--color-bg-transparent));
+  background: radial-gradient(ellipse at 50% 100%, var(--color-bg) 33%, transparent 75%);
   z-index: var(--z-navigation);
   position: fixed;
   bottom: 0px;
   left: 0px;
   right: 0px;
   padding: var(--margin);
+  display: grid;
+  justify-content: center;
+  grid-template-columns: min(100%, var(--max-width));
 
   & > nav {
     display: grid;
@@ -28,13 +31,12 @@
       border-radius: var(--size-radius);
     }
 
-    & > .menu {
+    & > .menuModalButton {
       display: grid;
       grid-template-columns: 1fr min-content;
       background-color: transparent;
       align-items: center;
       color: inherit;
-      font-size: inherit;
       padding-inline: var(--margin);
     }
 

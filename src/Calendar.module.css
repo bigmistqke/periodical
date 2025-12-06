@@ -20,9 +20,9 @@
     font-weight: 300;
 
     & > [data-corvu-calendar-label] {
-      font-size: var(--size-l-font);
-      line-height: var(--size-l-font);
-      font-family: 'Inter Tight', sans-serif;
+      font-size: var(--size-m-font);
+      line-height: var(--size-m-font);
+      font-family: var(--font-family);
       font-optical-sizing: auto;
       font-weight: 300;
     }
@@ -102,11 +102,16 @@
       right: 0px;
       bottom: -1px;
       left: -1px;
-      border: 1px solid var(--color-border);
+      border-right: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
       padding: var(--margin);
       font-size: var(--size-xs-font);
       line-height: var(--size-xs-font);
       color: var(--color-middle);
+    }
+
+    &:first-of-type::before {
+      border: 1px solid var(--color-border);
     }
 
     &.today::before {
@@ -122,10 +127,44 @@
         opacity: 0.5;
       }
     }
-  }
 
-  & [data-corvu-calendar-cell][data-today] {
-    border: 2px solid var(--color-border-today);
+    &[data-today] {
+      border: 2px solid var(--color-border-today);
+    }
+
+    /**********************************************************************************/
+    /*                                                                                */
+    /*                                   Indicator                                    */
+    /*                                                                                */
+    /**********************************************************************************/
+
+    &:first-of-type .indicator {
+      margin-left: -1px;
+    }
+
+    &:last-of-type .indicator {
+      margin-right: 0px;
+    }
+
+    /* Round the top left radius of the first day of period/ovulation */
+    &[data-start] .indicator {
+      border-top-left-radius: var(--size-radius);
+      margin-left: -1px;
+    }
+
+    /* Round the top right radius of the last day of period/ovulation */
+    &[data-end] .indicator {
+      border-top-right-radius: var(--size-radius);
+      margin-right: 0px;
+    }
+
+    &[data-phase='period'] .indicator {
+      background-color: var(--color-period);
+    }
+
+    &[data-phase='ovulation'] .indicator {
+      background-color: var(--color-ovulation);
+    }
   }
 
   /**********************************************************************************/
@@ -134,36 +173,20 @@
   /*                                                                                */
   /**********************************************************************************/
 
-  & tr:first-of-type [data-corvu-calendar-cell]:first-of-type {
-    &::before {
-      border-top-left-radius: var(--size-radius);
+  & tr:first-of-type {
+    & [data-corvu-calendar-cell] {
+      /* Round the first day of the first week */
+      &:first-of-type::before {
+        border-top-left-radius: var(--size-radius);
+      }
+      /* Round the last day of the first week */
+      &:last-of-type::before {
+        border-top-right-radius: var(--size-radius);
+      }
     }
   }
 
-  & [data-corvu-calendar-cell][data-phase='period'] .indicator {
-    background-color: var(--color-period);
-  }
-
-  & [data-corvu-calendar-cell][data-phase='ovulation'] .indicator {
-    background-color: var(--color-ovulation);
-  }
-
-  & [data-corvu-calendar-cell][data-start] .indicator {
-    border-top-left-radius: var(--size-radius);
-  }
-
-  & [data-corvu-calendar-cell][data-end] .indicator {
-    border-top-right-radius: var(--size-radius);
-  }
-
-  & [data-corvu-calendar-cell][data-day-of-period='0'] .indicator {
-    border-top-left-radius: var(--size-radius);
-  }
-
-  & tr:first-of-type [data-corvu-calendar-cell]:last-of-type::before {
-    border-top-right-radius: var(--size-radius);
-  }
-
+  /* If the first week is incomplete, round the radius of the first day of the second week */
   &:not(:has(tr:first-of-type [data-corvu-calendar-cell][data-day]:first-child))
     tr:nth-child(2)
     [data-corvu-calendar-cell]:first-child::before {
@@ -176,28 +199,81 @@
   /*                                                                                */
   /**********************************************************************************/
 
-  & tr:last-of-type [data-corvu-calendar-cell]:first-of-type::before {
-    border-bottom-left-radius: var(--size-radius);
+  & tr:last-of-type [data-corvu-calendar-cell] {
+    /* Round the bottom left radius of the first cell of the last week */
+    &:first-of-type::before {
+      border-bottom-left-radius: var(--size-radius);
+    }
+
+    /* Round the bottom right radius of the last cell of the last week */
+    &:last-of-type::before {
+      border-bottom-right-radius: var(--size-radius);
+    }
+
+    &[data-day]:last-of-type .indicator {
+      border-bottom-right-radius: var(--size-radius);
+    }
+
+    &[data-day]:first-child .indicator {
+      border-bottom-left-radius: calc(var(--size-radius) - 1px);
+    }
   }
 
-  & tr:last-of-type [data-corvu-calendar-cell]:last-of-type::before {
-    border-bottom-right-radius: var(--size-radius);
-  }
-
-  & tr:last-of-type [data-corvu-calendar-cell][data-day]:last-of-type .indicator {
-    border-bottom-right-radius: var(--size-radius);
-  }
-
-  & tr:last-of-type [data-corvu-calendar-cell][data-day]:first-child .indicator {
-    border-bottom-left-radius: var(--size-radius);
-  }
-
+  /* If the last week is incomplete, round the radius of the last day of the last - 1 week */
   &:not(:has(tr:last-of-type [data-corvu-calendar-cell][data-day]:last-child))
     tr:nth-last-child(2)
     [data-corvu-calendar-cell]:last-child {
-    & .indicator,
+    & .indicator {
+      border-bottom-right-radius: calc(var(--size-radius) - 1px);
+    }
     &::before {
       border-bottom-right-radius: var(--size-radius);
     }
+  }
+
+  /**********************************************************************************/
+  /*                                                                                */
+  /*                                   Border Tops                                  */
+  /*                                                                                */
+  /**********************************************************************************/
+
+  /* Add border-top to all first row borders */
+  & tr:first-of-type [data-corvu-calendar-cell]:not(.today)::before {
+    border-top: 1px solid var(--color-border);
+  }
+
+  /* If the first week misses 2nd day, add border-top to 2nd day of second week */
+  &:not(:has(tr:first-of-type [data-corvu-calendar-cell][data-day]:nth-child(2)))
+    tr:nth-child(2)
+    [data-corvu-calendar-cell]:nth-child(2)::before {
+    border-top: 1px solid var(--color-border);
+  }
+
+  /* If the first week misses 3th day, add border-top to 3th day of second week */
+  &:not(:has(tr:first-of-type [data-corvu-calendar-cell][data-day]:nth-child(3)))
+    tr:nth-child(2)
+    [data-corvu-calendar-cell]:nth-child(3)::before {
+    border-top: 1px solid var(--color-border);
+  }
+
+  /* If the first week misses 4th day, add border-top to 4th day of second week */
+  &:not(:has(tr:first-of-type [data-corvu-calendar-cell][data-day]:nth-child(4)))
+    tr:nth-child(2)
+    [data-corvu-calendar-cell]:nth-child(4)::before {
+    border-top: 1px solid var(--color-border);
+  }
+
+  /* If the first week misses 5th day, add border-top to 5th day of second week */
+  &:not(:has(tr:first-of-type [data-corvu-calendar-cell][data-day]:nth-child(5)))
+    tr:nth-child(2)
+    [data-corvu-calendar-cell]:nth-child(5)::before {
+    border-top: 1px solid var(--color-border);
+  }
+
+  /* If the first week misses 6th day, add border-top to 6th day of second week */
+  &:not(:has(tr:first-of-type [data-corvu-calendar-cell][data-day]:nth-child(6)))
+    tr:nth-child(2)
+    [data-corvu-calendar-cell]:nth-child(6)::before {
+    border-top: 1px solid var(--color-border);
   }
 }

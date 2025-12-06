@@ -1,5 +1,5 @@
 import { makePersisted } from '@solid-primitives/storage'
-import { Route, Router, useBeforeLeave } from '@solidjs/router'
+import { Route, Router } from '@solidjs/router'
 import clsx from 'clsx'
 import { createStore } from 'solid-js/store'
 import styles from './App.module.css'
@@ -49,33 +49,12 @@ export default function () {
         <Router
           url={import.meta.env.VITE_BASE_URL}
           base={import.meta.env.VITE_BASE_URL}
-          root={props => {
-            const transition = function (fnThatChangesTheDOM: ViewTransitionUpdateCallback) {
-              // In case the API is not yet supported
-              if (!document.startViewTransition) {
-                return fnThatChangesTheDOM()
-              }
-
-              // Transition the changes in the DOM
-              const transition = document.startViewTransition(fnThatChangesTheDOM)
-            }
-
-            useBeforeLeave(e => {
-              // Stop the inmediate navigation and DOM change
-              e.preventDefault()
-
-              // Perform the action that triggers a DOM change
-              transition(() => {
-                e.retry(true)
-              })
-            })
-            return (
-              <>
-                {props.children}
-                <Navigation menu={modals.menu.modal()!} />
-              </>
-            )
-          }}
+          root={props => (
+            <>
+              {props.children}
+              <Navigation menu={modals.menu.modal()!} />
+            </>
+          )}
         >
           <Route path="" component={Home} />
           <Route path="/calendar" component={Calendar} />

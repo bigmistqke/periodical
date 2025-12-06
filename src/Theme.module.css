@@ -3,7 +3,6 @@ body {
   padding: 0px;
   font-style: normal;
   font-weight: 300;
-  font-family: 'Inter Tight', sans-serif;
   font-optical-sizing: auto;
 
   --scalar: 0.8;
@@ -33,6 +32,12 @@ body {
   overscroll-behavior-y: none;
 }
 
+button {
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+}
+
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation-duration: 0.125s;
@@ -58,6 +63,8 @@ body {
     var(--color-bg-semi-transparent)
   );
   --filter-past-indicator: brightness(50%);
+
+  --font-family: 'Inter Tight';
 }
 
 .light {
@@ -76,4 +83,6 @@ body {
 
   --bg-modal-underlay: #d3d3d3;
   --filter-past-indicator: brightness(175%) saturate(50%);
+
+  --font-family: 'Inter Tight';
 }

@@ -91,7 +91,7 @@ export function Home() {
                   'day',
                 )}
               </em>
-              <div>until your period ends (regularly).</div>
+              <div>until your period ends</div>
             </Match>
             <Match when={dayOfOvulation(store, store.currentDate) !== -1}>
               <em>
@@ -101,7 +101,7 @@ export function Home() {
                   'day',
                 )}
               </em>
-              <div>until day of your ovulation (maybe).</div>
+              <div>until day of your ovulation</div>
             </Match>
           </Switch>
         </section>

@@ -16,7 +16,7 @@ export function Navigation(props: { menu: HTMLDialogElement }) {
             calendar
           </A>
         </div>
-        <button class={styles.menu} onClick={() => props.menu.show()}>
+        <button class={styles.menuModalButton} onClick={() => props.menu.show()}>
           <span>menu</span>
           <VsMenu />
         </button>
