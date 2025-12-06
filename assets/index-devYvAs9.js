@@ -4589,39 +4589,42 @@ function App() {
         setStore
       },
       get children() {
-        return [createComponent(modals.menu.Modal, {}), createComponent(modals.cycleStart.Modal, {}), createComponent(
-          Router,
-          {
-            root: (props) => {
-              const transition = function(fnThatChangesTheDOM) {
-                if (!document.startViewTransition) {
-                  return fnThatChangesTheDOM();
-                }
-                document.startViewTransition(fnThatChangesTheDOM);
-              };
-              useBeforeLeave((e) => {
-                e.preventDefault();
-                transition(() => {
-                  e.retry(true);
-                });
+        return [createComponent(modals.menu.Modal, {}), createComponent(modals.cycleStart.Modal, {}), createComponent(Router, {
+          get url() {
+            return "./";
+          },
+          get base() {
+            return "./";
+          },
+          root: (props) => {
+            const transition = function(fnThatChangesTheDOM) {
+              if (!document.startViewTransition) {
+                return fnThatChangesTheDOM();
+              }
+              document.startViewTransition(fnThatChangesTheDOM);
+            };
+            useBeforeLeave((e) => {
+              e.preventDefault();
+              transition(() => {
+                e.retry(true);
               });
-              return [memo(() => props.children), createComponent(Navigation, {
-                get menu() {
-                  return modals.menu.modal();
-                }
-              })];
-            },
-            get children() {
-              return [createComponent(Route, {
-                path: "/",
-                component: Home
-              }), createComponent(Route, {
-                path: "/calendar",
-                component: Calendar
-              })];
-            }
+            });
+            return [memo(() => props.children), createComponent(Navigation, {
+              get menu() {
+                return modals.menu.modal();
+              }
+            })];
+          },
+          get children() {
+            return [createComponent(Route, {
+              path: "/",
+              component: Home
+            }), createComponent(Route, {
+              path: "/calendar",
+              component: Calendar
+            })];
           }
-        )];
+        })];
       }
     }));
     createRenderEffect(() => className(_el$, clsx(styles$5.page, theme[store.settings.app.theme])));
