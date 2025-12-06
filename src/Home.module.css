@@ -58,3 +58,9 @@
   font-size: 14pt;
   letter-spacing: 6.5px;
 }
+
+.statement {
+  & > div {
+    text-wrap: balance;
+  }
+}

@@ -1,5 +1,5 @@
 import { CirkelStore } from './CirkelStoreContext'
-import { DAY, HOUR, ovulationDuration } from './constants'
+import { DAY, HOUR } from './constants'
 
 // From https://github.com/corvudev/corvu/blob/ff79bca96ead89a703637c0738191e20e1ffa67d/packages/calendar/src/utils.ts
 
@@ -77,14 +77,14 @@ export function dayOfOvulation(store: CirkelStore, date: Date) {
   const dayOfTheCycle = getDayOfTheCycle(store, date)
   const center = Math.floor(store.settings.cycle.cycleDuration / 2)
 
-  const startOfOvulation = center - ovulationDuration
+  const startOfOvulation = center - store.settings.cycle.ovulationDuration
   const dayOfOvulation = dayOfTheCycle - startOfOvulation
 
   if (dayOfOvulation < 0) {
     return -1
   }
 
-  if (dayOfOvulation >= ovulationDuration) {
+  if (dayOfOvulation >= store.settings.cycle.ovulationDuration) {
     return -1
   }
   return dayOfOvulation

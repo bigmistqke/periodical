@@ -1,8 +1,10 @@
-import { createMemo, createSignal } from 'solid-js'
+import { createMemo, createSignal, Match, Switch } from 'solid-js'
 import { useCirkel } from './CirkelStoreContext'
 import styles from './Home.module.css'
 import { modals } from './modals/modals'
 import {
+  dayOfOvulation,
+  dayOfPeriod,
   getDayOfTheCycle,
   getDaysUntilCycleCompletes,
   postfixCardinal,
@@ -89,12 +91,39 @@ export function Home() {
           <em>{postfixOrdinal(getDayOfTheCycle(store, store.currentDate) + 1)} day</em>
           <div>of your cycle</div>
         </section>
-        <section>
-          <em>
-            {getDaysUntilCycleCompletes(store, store.currentDate)}{' '}
-            {postfixCardinal(getDaysUntilCycleCompletes(store, store.currentDate), 'day')}
-          </em>
-          <div>until your cycle is completed</div>
+        <section class={styles.statement}>
+          <Switch
+            fallback={
+              <>
+                <em>
+                  {getDaysUntilCycleCompletes(store, store.currentDate)}{' '}
+                  {postfixCardinal(getDaysUntilCycleCompletes(store, store.currentDate), 'day')}
+                </em>
+                <div>until your cycle is completed</div>
+              </>
+            }
+          >
+            <Match when={dayOfPeriod(store, store.currentDate) !== -1}>
+              <em>
+                {store.settings.cycle.periodDuration - dayOfPeriod(store, store.currentDate)}{' '}
+                {postfixCardinal(
+                  store.settings.cycle.periodDuration - dayOfPeriod(store, store.currentDate),
+                  'day',
+                )}
+              </em>
+              <div>until your period ends (regularly).</div>
+            </Match>
+            <Match when={dayOfOvulation(store, store.currentDate) !== -1}>
+              <em>
+                {store.settings.cycle.ovulationDuration - dayOfOvulation(store, store.currentDate)}{' '}
+                {postfixCardinal(
+                  store.settings.cycle.ovulationDuration - dayOfOvulation(store, store.currentDate),
+                  'day',
+                )}
+              </em>
+              <div>until day of your ovulation (maybe).</div>
+            </Match>
+          </Switch>
         </section>
       </section>
       <section>

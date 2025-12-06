@@ -16,6 +16,7 @@ export default function () {
       cycle: {
         cycleDuration: 25,
         periodDuration: 5,
+        ovulationDuration: 4,
       },
       app: {
         theme: 'dark',

@@ -12,6 +12,7 @@ export interface CirkelStore {
     cycle: {
       cycleDuration: number
       periodDuration: number
+      ovulationDuration: number
     }
     app: {
       theme: (typeof themes)[number]

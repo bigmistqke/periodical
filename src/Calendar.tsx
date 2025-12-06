@@ -3,7 +3,6 @@ import clsx from 'clsx'
 import { createMemo, createSignal, Index, onMount, Show } from 'solid-js'
 import styles from './Calendar.module.css'
 import { useCirkel } from './CirkelStoreContext'
-import { ovulationDuration } from './constants'
 import theme from './Theme.module.css'
 import { dayOfOvulation, dayOfPeriod, isSameDay, isSameDayOrBefore } from './utils'
 
@@ -135,7 +134,8 @@ export function Calendar() {
                                         }
                                         data-end={
                                           periodDay() === store.settings.cycle.periodDuration - 1 ||
-                                          ovulationDay() === ovulationDuration - 1 ||
+                                          ovulationDay() ===
+                                            store.settings.cycle.ovulationDuration - 1 ||
                                           undefined
                                         }
                                         class={clsx(
