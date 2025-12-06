@@ -2001,26 +2001,6 @@ const useHref = (to) => {
     });
 };
 /**
- * Retrieves method to do navigation. The method accepts a path to navigate to and an optional object with the following options:
- *
- * - resolve (*boolean*, default `true`): resolve the path against the current route
- * - replace (*boolean*, default `false`): replace the history entry
- * - scroll (*boolean*, default `true`): scroll to top after navigation
- * - state (*any*, default `undefined`): pass custom state to `location.state`
- *
- * **Note**: The state is serialized using the structured clone algorithm which does not support all object types.
- *
- * @example
- * ```js
- * const navigate = useNavigate();
- *
- * if (unauthorized) {
- *   navigate("/login", { replace: true });
- * }
- * ```
- */
-const useNavigate = () => useRouter().navigatorFactory();
-/**
  * Retrieves reactive `location` object useful for getting things like `pathname`.
  *
  * @example
@@ -2031,41 +2011,6 @@ const useNavigate = () => useRouter().navigatorFactory();
  * ```
  */
 const useLocation = () => useRouter().location;
-/**
- * useBeforeLeave takes a function that will be called prior to leaving a route.
- * The function will be called with:
- *
- * - from (*Location*): current location (before change).
- * - to (*string | number*): path passed to `navigate`.
- * - options (*NavigateOptions*): options passed to navigate.
- * - preventDefault (*function*): call to block the route change.
- * - defaultPrevented (*readonly boolean*): `true` if any previously called leave handlers called `preventDefault`.
- * - retry (*function*, force?: boolean ): call to retry the same navigation, perhaps after confirming with the user. Pass `true` to skip running the leave handlers again (i.e. force navigate without confirming).
- *
- * @example
- * ```js
- * useBeforeLeave((e: BeforeLeaveEventArgs) => {
- *   if (form.isDirty && !e.defaultPrevented) {
- *     // preventDefault to block immediately and prompt user async
- *     e.preventDefault();
- *     setTimeout(() => {
- *       if (window.confirm("Discard unsaved changes - are you sure?")) {
- *         // user wants to proceed anyway so retry with force=true
- *         e.retry(true);
- *       }
- *     }, 100);
- *   }
- * });
- * ```
- */
-const useBeforeLeave = (listener) => {
-    const s = useRouter().beforeLeave.subscribe({
-        listener,
-        location: useLocation(),
-        navigate: useNavigate()
-    });
-    onCleanup(s);
-};
 function createRoutes(routeDef, base = "") {
     const { component, preload, load, children, info } = routeDef;
     const isLeaf = !children || (Array.isArray(children) && !children.length);
@@ -2773,7 +2718,7 @@ function A(props) {
 
 function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else if("object"==typeof e)if(Array.isArray(e)){var o=e.length;for(t=0;t<o;t++)e[t]&&(f=r(e[t]))&&(n&&(n+=" "),n+=f);}else for(f in e)e[f]&&(n&&(n+=" "),n+=f);return n}function clsx(){for(var e,t,f=0,n="",o=arguments.length;f<o;f++)(e=arguments[f])&&(t=r(e))&&(n&&(n+=" "),n+=t);return n}
 
-const page = "_page_1algv_1";
+const page = "_page_1nskw_1";
 const styles$5 = {
 	page: page
 };
@@ -3626,11 +3571,11 @@ var Calendar$1 = Object.assign(Root_default, {
 });
 var index_default = Calendar$1;
 
-const calendarContainer = "_calendarContainer_1r3uv_1";
-const calendar = "_calendar_1r3uv_1";
-const indicator = "_indicator_1r3uv_79";
-const today = "_today_1r3uv_112";
-const past = "_past_1r3uv_117";
+const calendarContainer = "_calendarContainer_1v42k_1";
+const calendar = "_calendar_1v42k_1";
+const indicator = "_indicator_1v42k_79";
+const today = "_today_1v42k_117";
+const past = "_past_1v42k_122";
 const styles$4 = {
 	calendarContainer: calendarContainer,
 	calendar: calendar,
@@ -3639,8 +3584,8 @@ const styles$4 = {
 	past: past
 };
 
-const dark = "_dark_12mss_41";
-const light = "_light_12mss_63";
+const dark = "_dark_1lomq_40";
+const light = "_light_1lomq_64";
 const theme = {
 	dark: dark,
 	light: light
@@ -3656,7 +3601,7 @@ function useCirkel() {
   return context;
 }
 
-const title = "_title_90h1q_1";
+const title = "_title_5ql1p_1";
 const global = {
 	title: title
 };
@@ -4068,16 +4013,16 @@ function FiArrowLeft(props) {
       }, props)
   }
 
-const modal = "_modal_1ik1c_1";
-const icon = "_icon_1ik1c_90";
-const section = "_section_1ik1c_115";
-const button = "_button_1ik1c_99";
+const modal = "_modal_1hnn6_1";
+const icon = "_icon_1hnn6_90";
+const section = "_section_1hnn6_115";
+const button = "_button_1hnn6_99";
 const styles$1 = {
 	modal: modal,
-	"binary-option": "_binary-option_1ik1c_70",
-	"label-container": "_label-container_1ik1c_79",
+	"binary-option": "_binary-option_1hnn6_70",
+	"label-container": "_label-container_1hnn6_79",
 	icon: icon,
-	"button-container": "_button-container_1ik1c_99",
+	"button-container": "_button-container_1hnn6_99",
 	section: section,
 	button: button
 };
@@ -4596,25 +4541,11 @@ function App() {
           get base() {
             return "cirkel";
           },
-          root: (props) => {
-            const transition = function(fnThatChangesTheDOM) {
-              if (!document.startViewTransition) {
-                return fnThatChangesTheDOM();
-              }
-              document.startViewTransition(fnThatChangesTheDOM);
-            };
-            useBeforeLeave((e) => {
-              e.preventDefault();
-              transition(() => {
-                e.retry(true);
-              });
-            });
-            return [memo(() => props.children), createComponent(Navigation, {
-              get menu() {
-                return modals.menu.modal();
-              }
-            })];
-          },
+          root: (props) => [memo(() => props.children), createComponent(Navigation, {
+            get menu() {
+              return modals.menu.modal();
+            }
+          })],
           get children() {
             return [createComponent(Route, {
               path: "",

@@ -1,4 +1,4 @@
-._page_1algv_1 {
+._page_1nskw_1 {
   height: 100dvh;
   overflow: hidden;
 
@@ -7,13 +7,14 @@
   font-size: var(--size-m-font);
   scrollbar-color: var(--color-middle) transparent;
   scrollbar-width: thin;
+  font-family: var(--font-family);
 }
-._calendarContainer_1r3uv_1 {
+._calendarContainer_1v42k_1 {
   overflow: auto;
   height: 100%;
 }
 
-._calendar_1r3uv_1 {
+._calendar_1v42k_1 {
   display: grid;
   grid-template-rows: calc(var(--size-row) * 3) 1fr;
   overflow: hidden;
@@ -32,7 +33,7 @@
     & > [data-corvu-calendar-label] {
       font-size: var(--size-l-font);
       line-height: var(--size-l-font);
-      font-family: 'Inter Tight', sans-serif;
+      font-family: var(--font-family);
       font-optical-sizing: auto;
       font-weight: 300;
     }
@@ -86,7 +87,7 @@
     padding-inline: calc(var(--margin) / 2);
   }
 
-  & ._indicator_1r3uv_79 {
+  & ._indicator_1v42k_79 {
     margin-inline: -2px;
     margin-bottom: -1px;
     z-index: var(--z-indicator);
@@ -112,30 +113,69 @@
       right: 0px;
       bottom: -1px;
       left: -1px;
-      border: 1px solid var(--color-border);
+      border-right: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
       padding: var(--margin);
       font-size: var(--size-xs-font);
       line-height: var(--size-xs-font);
       color: var(--color-middle);
     }
 
-    &._today_1r3uv_112::before {
+    &:first-of-type::before {
+      border: 1px solid var(--color-border);
+    }
+
+    &._today_1v42k_117::before {
       border: 2px solid var(--color-front);
       z-index: var(--z-border-today);
     }
 
-    &._past_1r3uv_117 {
-      & ._indicator_1r3uv_79 {
+    &._past_1v42k_122 {
+      & ._indicator_1v42k_79 {
         filter: var(--filter-past-indicator);
       }
       &::before {
         opacity: 0.5;
       }
     }
-  }
 
-  & [data-corvu-calendar-cell][data-today] {
-    border: 2px solid var(--color-border-today);
+    &[data-today] {
+      border: 2px solid var(--color-border-today);
+    }
+
+    /**********************************************************************************/
+    /*                                                                                */
+    /*                                   Indicator                                    */
+    /*                                                                                */
+    /**********************************************************************************/
+
+    &:first-of-type ._indicator_1v42k_79 {
+      margin-left: -1px;
+    }
+
+    &:last-of-type ._indicator_1v42k_79 {
+      margin-right: 0px;
+    }
+
+    /* Round the top left radius of the first day of period/ovulation */
+    &[data-start] ._indicator_1v42k_79 {
+      border-top-left-radius: var(--size-radius);
+      margin-left: -1px;
+    }
+
+    /* Round the top right radius of the last day of period/ovulation */
+    &[data-end] ._indicator_1v42k_79 {
+      border-top-right-radius: var(--size-radius);
+      margin-right: 0px;
+    }
+
+    &[data-phase='period'] ._indicator_1v42k_79 {
+      background-color: var(--color-period);
+    }
+
+    &[data-phase='ovulation'] ._indicator_1v42k_79 {
+      background-color: var(--color-ovulation);
+    }
   }
 
   /**********************************************************************************/
@@ -144,36 +184,20 @@
   /*                                                                                */
   /**********************************************************************************/
 
-  & tr:first-of-type [data-corvu-calendar-cell]:first-of-type {
-    &::before {
-      border-top-left-radius: var(--size-radius);
+  & tr:first-of-type {
+    & [data-corvu-calendar-cell] {
+      /* Round the first day of the first week */
+      &:first-of-type::before {
+        border-top-left-radius: var(--size-radius);
+      }
+      /* Round the last day of the first week */
+      &:last-of-type::before {
+        border-top-right-radius: var(--size-radius);
+      }
     }
   }
 
-  & [data-corvu-calendar-cell][data-phase='period'] ._indicator_1r3uv_79 {
-    background-color: var(--color-period);
-  }
-
-  & [data-corvu-calendar-cell][data-phase='ovulation'] ._indicator_1r3uv_79 {
-    background-color: var(--color-ovulation);
-  }
-
-  & [data-corvu-calendar-cell][data-start] ._indicator_1r3uv_79 {
-    border-top-left-radius: var(--size-radius);
-  }
-
-  & [data-corvu-calendar-cell][data-end] ._indicator_1r3uv_79 {
-    border-top-right-radius: var(--size-radius);
-  }
-
-  & [data-corvu-calendar-cell][data-day-of-period='0'] ._indicator_1r3uv_79 {
-    border-top-left-radius: var(--size-radius);
-  }
-
-  & tr:first-of-type [data-corvu-calendar-cell]:last-of-type::before {
-    border-top-right-radius: var(--size-radius);
-  }
-
+  /* If the first week is incomplete, round the radius of the first day of the second week */
   &:not(:has(tr:first-of-type [data-corvu-calendar-cell][data-day]:first-child))
     tr:nth-child(2)
     [data-corvu-calendar-cell]:first-child::before {
@@ -186,29 +210,82 @@
   /*                                                                                */
   /**********************************************************************************/
 
-  & tr:last-of-type [data-corvu-calendar-cell]:first-of-type::before {
-    border-bottom-left-radius: var(--size-radius);
+  & tr:last-of-type [data-corvu-calendar-cell] {
+    /* Round the bottom left radius of the first cell of the last week */
+    &:first-of-type::before {
+      border-bottom-left-radius: var(--size-radius);
+    }
+
+    /* Round the bottom right radius of the last cell of the last week */
+    &:last-of-type::before {
+      border-bottom-right-radius: var(--size-radius);
+    }
+
+    &[data-day]:last-of-type ._indicator_1v42k_79 {
+      border-bottom-right-radius: var(--size-radius);
+    }
+
+    &[data-day]:first-child ._indicator_1v42k_79 {
+      border-bottom-left-radius: calc(var(--size-radius) - 1px);
+    }
   }
 
-  & tr:last-of-type [data-corvu-calendar-cell]:last-of-type::before {
-    border-bottom-right-radius: var(--size-radius);
-  }
-
-  & tr:last-of-type [data-corvu-calendar-cell][data-day]:last-of-type ._indicator_1r3uv_79 {
-    border-bottom-right-radius: var(--size-radius);
-  }
-
-  & tr:last-of-type [data-corvu-calendar-cell][data-day]:first-child ._indicator_1r3uv_79 {
-    border-bottom-left-radius: var(--size-radius);
-  }
-
+  /* If the last week is incomplete, round the radius of the last day of the last - 1 week */
   &:not(:has(tr:last-of-type [data-corvu-calendar-cell][data-day]:last-child))
     tr:nth-last-child(2)
     [data-corvu-calendar-cell]:last-child {
-    & ._indicator_1r3uv_79,
+    & ._indicator_1v42k_79 {
+      border-bottom-right-radius: calc(var(--size-radius) - 1px);
+    }
     &::before {
       border-bottom-right-radius: var(--size-radius);
     }
+  }
+
+  /**********************************************************************************/
+  /*                                                                                */
+  /*                                   Border Tops                                  */
+  /*                                                                                */
+  /**********************************************************************************/
+
+  /* Add border-top to all first row borders */
+  & tr:first-of-type [data-corvu-calendar-cell]:not(._today_1v42k_117)::before {
+    border-top: 1px solid var(--color-border);
+  }
+
+  /* If the first week misses 2nd day, add border-top to 2nd day of second week */
+  &:not(:has(tr:first-of-type [data-corvu-calendar-cell][data-day]:nth-child(2)))
+    tr:nth-child(2)
+    [data-corvu-calendar-cell]:nth-child(2)::before {
+    border-top: 1px solid var(--color-border);
+  }
+
+  /* If the first week misses 3th day, add border-top to 3th day of second week */
+  &:not(:has(tr:first-of-type [data-corvu-calendar-cell][data-day]:nth-child(3)))
+    tr:nth-child(2)
+    [data-corvu-calendar-cell]:nth-child(3)::before {
+    border-top: 1px solid var(--color-border);
+  }
+
+  /* If the first week misses 4th day, add border-top to 4th day of second week */
+  &:not(:has(tr:first-of-type [data-corvu-calendar-cell][data-day]:nth-child(4)))
+    tr:nth-child(2)
+    [data-corvu-calendar-cell]:nth-child(4)::before {
+    border-top: 1px solid var(--color-border);
+  }
+
+  /* If the first week misses 5th day, add border-top to 5th day of second week */
+  &:not(:has(tr:first-of-type [data-corvu-calendar-cell][data-day]:nth-child(5)))
+    tr:nth-child(2)
+    [data-corvu-calendar-cell]:nth-child(5)::before {
+    border-top: 1px solid var(--color-border);
+  }
+
+  /* If the first week misses 6th day, add border-top to 6th day of second week */
+  &:not(:has(tr:first-of-type [data-corvu-calendar-cell][data-day]:nth-child(6)))
+    tr:nth-child(2)
+    [data-corvu-calendar-cell]:nth-child(6)::before {
+    border-top: 1px solid var(--color-border);
   }
 }
 body {
@@ -216,7 +293,6 @@ body {
   padding: 0px;
   font-style: normal;
   font-weight: 300;
-  font-family: 'Inter Tight', sans-serif;
   font-optical-sizing: auto;
 
   --scalar: 0.8;
@@ -251,7 +327,7 @@ body {
   animation-duration: 0.125s;
 }
 
-._dark_12mss_41 {
+._dark_1lomq_40 {
   --color-front: #b7c9e9;
   --color-middle: #aab8d2;
   --color-period: #d53f3f;
@@ -271,9 +347,11 @@ body {
     var(--color-bg-semi-transparent)
   );
   --filter-past-indicator: brightness(50%);
+
+  --font-family: 'Inter Tight';
 }
 
-._light_12mss_63 {
+._light_1lomq_64 {
   --color-front: #212327;
   --color-middle: #32363e;
   --color-period: #d53f3f;
@@ -289,11 +367,13 @@ body {
 
   --bg-modal-underlay: #d3d3d3;
   --filter-past-indicator: brightness(175%) saturate(50%);
+
+  --font-family: 'Inter Tight';
 }
-._title_90h1q_1 {
+._title_5ql1p_1 {
   font-size: 1.25rem;
   line-height: 1.25rem;
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-family);
   font-optical-sizing: auto;
 }
 ._overview_6hm62_1 {
@@ -378,7 +458,7 @@ body {
   gap: var(--margin);
   height: var(--size-row);
 }
-._modal_1ik1c_1 {
+._modal_1hnn6_1 {
   position: fixed;
   z-index: var(--z-menu-modal);
   left: 0;
@@ -447,7 +527,7 @@ body {
   }
 }
 
-._binary-option_1ik1c_70 {
+._binary-option_1hnn6_70 {
   width: 100%;
   position: relative;
   padding-block: calc(var(--margin) * 1.5);
@@ -456,7 +536,7 @@ body {
     border-bottom: 1px solid var(--color-border);
   }
 
-  & > ._label-container_1ik1c_79 {
+  & > ._label-container_1hnn6_79 {
     z-index: 1;
     pointer-events: none;
     display: grid;
@@ -467,7 +547,7 @@ body {
     align-content: center;
     text-align: center;
 
-    & ._icon_1ik1c_90 {
+    & ._icon_1hnn6_90 {
       padding-inline: calc(var(--margin) * 3);
       & > svg {
         stroke-width: 1px;
@@ -476,7 +556,7 @@ body {
     }
   }
 
-  & > ._button-container_1ik1c_99 {
+  & > ._button-container_1hnn6_99 {
     position: absolute;
     left: 0;
     top: 0;
@@ -492,16 +572,17 @@ body {
   }
 }
 
-._section_1ik1c_115,
-._button_1ik1c_99 {
+._section_1hnn6_115,
+._button_1hnn6_99 {
   background-color: var(--color-bg);
   color: var(--color-front);
   border: 1px solid var(--color-border);
   border-radius: var(--size-radius);
   font-size: var(--size-s-font);
+  font-family: var(--font-family);
 }
 
-._section_1ik1c_115 {
+._section_1hnn6_115 {
   background-color: var(--color-bg);
   color: var(--color-front);
   border: 1px solid var(--color-border);
