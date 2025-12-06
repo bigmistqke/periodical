@@ -77,7 +77,7 @@ export default function () {
             )
           }}
         >
-          <Route path="/" component={Home} />
+          <Route path="" component={Home} />
           <Route path="/calendar" component={Calendar} />
         </Router>
       </CirkeStoreContext.Provider>

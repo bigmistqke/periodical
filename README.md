@@ -1,3 +1,3 @@
-## cirkel ○
+## ○ (cirkel)
 
 minimal period tracking app
