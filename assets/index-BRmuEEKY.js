@@ -4551,7 +4551,6 @@ delegateEvents(["click"]);
 
 var _tmpl$ = /* @__PURE__ */ template(`<div>`);
 function App() {
-  console.log("localStorage", localStorage);
   const [store, setStore] = makePersisted(createStore({
     settings: {
       cycle: {
