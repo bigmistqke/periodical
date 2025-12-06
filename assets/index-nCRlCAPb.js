@@ -3718,7 +3718,7 @@ function Calendar() {
   const {
     store
   } = useCirkel();
-  const [amountOfMonths, setAmountOfMonths] = createSignal(12);
+  const [amountOfMonths, setAmountOfMonths] = createSignal(6);
   const map = /* @__PURE__ */ new WeakMap();
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -3728,7 +3728,7 @@ function Calendar() {
       } = map.get(entry.target);
       if (entry.isIntersecting && index >= amountOfMonths() - 2) {
         setIsVisible(entry.isIntersecting);
-        setAmountOfMonths((amountOfMonths2) => amountOfMonths2 + 12);
+        setAmountOfMonths((amountOfMonths2) => amountOfMonths2 + 2);
       }
     });
   });
