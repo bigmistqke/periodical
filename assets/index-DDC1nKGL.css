@@ -400,7 +400,7 @@ button {
   font-family: var(--font-family);
   font-optical-sizing: auto;
 }
-._home_160po_1 {
+._home_cmsao_1 {
   overflow: hidden;
   display: grid;
   grid-template-rows: calc(var(--size-row) * 2) 1fr calc(
@@ -409,21 +409,46 @@ button {
   height: calc(100% - var(--size-row) + var(--margin) * 2);
 }
 
-._home_160po_1 section {
+._home_cmsao_1 section {
     position: relative;
   }
 
-._gradient_160po_14 {
-  box-shadow: 0px 0px 25px var(--color-bg);
+._timeline_cmsao_14 {
+  position: relative;
 }
 
-._main_160po_18 {
+._timeline_cmsao_14 > ._gradient_cmsao_17 {
+    box-shadow: 0px 0px 25px var(--color-bg);
+    height: 100%;
+    width: 100%;
+  }
+
+._timeline_cmsao_14 > ._ruler_cmsao_23 {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: calc(var(--size-row) / 2);
+    z-index: 1;
+  }
+
+:is(._timeline_cmsao_14 > ._ruler_cmsao_23) > div {
+      width: 100%;
+    }
+
+:is(:is(._timeline_cmsao_14 > ._ruler_cmsao_23) > div):not(:last-child) {
+        border-left: 1px solid var(--color-border);
+      }
+
+._main_cmsao_43 {
   display: grid;
   align-content: center;
   font-size: var(--size-s-font);
 }
 
-._main_160po_18 > section {
+._main_cmsao_43 > section {
     display: grid;
     padding-inline: calc(var(--margin) * 3);
     gap: var(--margin);
@@ -433,23 +458,23 @@ button {
     justify-content: center;
   }
 
-:is(._main_160po_18 > section):first-child {
+:is(._main_cmsao_43 > section):first-child {
       border-bottom: 1px solid var(--color-border);
       padding-bottom: calc(var(--margin) * 3);
       margin-bottom: calc(var(--margin) * 3);
     }
 
-:is(._main_160po_18 > section) > em {
+:is(._main_cmsao_43 > section) > em {
       font-size: var(--size-xl-font);
       line-height: var(--size-xl-font);
       font-style: normal;
     }
 
-:is(._main_160po_18 > section) > div {
+:is(._main_cmsao_43 > section) > div {
       text-wrap: balance;
     }
 
-._text-path_160po_50 {
+._text-path_cmsao_75 {
   font-size: var(--size-xs-font);
   letter-spacing: 6.5px;
   font-weight: 100;
@@ -458,11 +483,11 @@ button {
   fill: var(--color-front);
 }
 
-._statement_160po_59 > div {
+._statement_cmsao_84 > div {
     text-wrap: balance;
   }
 
-._cycle-button-container_160po_65 {
+._cycle-button-container_cmsao_90 {
   width: 120px;
   height: 120px;
   transform: translate(-50%, 0%);
@@ -471,7 +496,7 @@ button {
   margin: 10px;
 }
 
-._cycle-button_160po_65 {
+._cycle-button_cmsao_90 {
   position: absolute;
   width: calc(100% - var(--margin) * 8);
   height: calc(100% - var(--margin) * 8);

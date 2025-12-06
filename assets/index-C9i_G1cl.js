@@ -3690,7 +3690,7 @@ function postfixCardinal(value, cardinal) {
   }
 }
 
-var _tmpl$$7 = /* @__PURE__ */ template(`<div>`), _tmpl$2$4 = /* @__PURE__ */ template(`<header>`), _tmpl$3$3 = /* @__PURE__ */ template(`<thead><tr>`), _tmpl$4$2 = /* @__PURE__ */ template(`<tbody>`), _tmpl$5$1 = /* @__PURE__ */ template(`<th>`), _tmpl$6 = /* @__PURE__ */ template(`<tr>`), _tmpl$7 = /* @__PURE__ */ template(`<span>`);
+var _tmpl$$7 = /* @__PURE__ */ template(`<div>`), _tmpl$2$4 = /* @__PURE__ */ template(`<header>`), _tmpl$3$3 = /* @__PURE__ */ template(`<thead><tr>`), _tmpl$4$2 = /* @__PURE__ */ template(`<tbody>`), _tmpl$5$1 = /* @__PURE__ */ template(`<th>`), _tmpl$6$1 = /* @__PURE__ */ template(`<tr>`), _tmpl$7 = /* @__PURE__ */ template(`<span>`);
 const {
   format: formatWeekdayLong
 } = new Intl.DateTimeFormat("en", {
@@ -3811,7 +3811,7 @@ function Calendar() {
                           return monthProps().weeks;
                         },
                         children: (week, index2) => (() => {
-                          var _el$8 = _tmpl$6();
+                          var _el$8 = _tmpl$6$1();
                           insert(_el$8, createComponent(Index, {
                             get each() {
                               return week();
@@ -3907,18 +3907,22 @@ function Calendar() {
   })();
 }
 
-const home = "_home_160po_1";
-const gradient = "_gradient_160po_14";
-const main = "_main_160po_18";
-const statement = "_statement_160po_59";
+const home = "_home_cmsao_1";
+const timeline = "_timeline_cmsao_14";
+const gradient = "_gradient_cmsao_17";
+const ruler = "_ruler_cmsao_23";
+const main = "_main_cmsao_43";
+const statement = "_statement_cmsao_84";
 const styles$3 = {
 	home: home,
+	timeline: timeline,
 	gradient: gradient,
+	ruler: ruler,
 	main: main,
-	"text-path": "_text-path_160po_50",
+	"text-path": "_text-path_cmsao_75",
 	statement: statement,
-	"cycle-button-container": "_cycle-button-container_160po_65",
-	"cycle-button": "_cycle-button_160po_65"
+	"cycle-button-container": "_cycle-button-container_cmsao_90",
+	"cycle-button": "_cycle-button_cmsao_90"
 };
 
 /**
@@ -4282,7 +4286,7 @@ const modals = createModals({
   cycleStart: CycleStartModal
 });
 
-var _tmpl$$2 = /* @__PURE__ */ template(`<em> `), _tmpl$2 = /* @__PURE__ */ template(`<div>until your period ends`), _tmpl$3 = /* @__PURE__ */ template(`<div>until day of your ovulation`), _tmpl$4 = /* @__PURE__ */ template(`<div><div></div><section><section><em> day</em><div>of your cycle</div></section><section></section></section><section><div><button></button><svg width=120 height=120 viewBox="0 0 120 120"><defs><path fill-rule=evenodd id=MyPath stroke=white></path></defs><text><textPath href=#MyPath stroke=white startOffset=25px textLength=90px>a new cycle`), _tmpl$5 = /* @__PURE__ */ template(`<div>until your cycle is completed`);
+var _tmpl$$2 = /* @__PURE__ */ template(`<em> `), _tmpl$2 = /* @__PURE__ */ template(`<div>until your period ends`), _tmpl$3 = /* @__PURE__ */ template(`<div>until day of your ovulation`), _tmpl$4 = /* @__PURE__ */ template(`<div><div><div></div><div></div></div><section><section><em> day</em><div>of your cycle</div></section><section></section></section><section><div><button></button><svg width=120 height=120 viewBox="0 0 120 120"><defs><path fill-rule=evenodd id=MyPath stroke=white></path></defs><text><textPath href=#MyPath stroke=white startOffset=25px textLength=90px>a new cycle`), _tmpl$5 = /* @__PURE__ */ template(`<div>`), _tmpl$6 = /* @__PURE__ */ template(`<div>until your cycle is completed`);
 const [bounds, setBounds] = createSignal(document.body.getBoundingClientRect());
 new ResizeObserver(() => setBounds(document.body.getBoundingClientRect())).observe(document.body);
 function Home() {
@@ -4311,16 +4315,24 @@ function Home() {
     return `linear-gradient(to right, ${createGradientStops().map((arr) => arr.join(" ")).join(", ")})`;
   }
   return (() => {
-    var _el$ = _tmpl$4(), _el$2 = _el$.firstChild, _el$3 = _el$2.nextSibling, _el$4 = _el$3.firstChild, _el$5 = _el$4.firstChild, _el$6 = _el$5.firstChild, _el$7 = _el$4.nextSibling, _el$12 = _el$3.nextSibling, _el$13 = _el$12.firstChild, _el$14 = _el$13.firstChild, _el$15 = _el$14.nextSibling, _el$16 = _el$15.firstChild, _el$17 = _el$16.firstChild, _el$18 = _el$16.nextSibling, _el$19 = _el$18.firstChild;
-    insert(_el$5, () => postfixOrdinal(getDayOfTheCycle(store, store.currentDate) + 1), _el$6);
-    insert(_el$7, createComponent(Switch, {
+    var _el$ = _tmpl$4(), _el$2 = _el$.firstChild, _el$3 = _el$2.firstChild, _el$4 = _el$3.nextSibling, _el$5 = _el$2.nextSibling, _el$6 = _el$5.firstChild, _el$7 = _el$6.firstChild, _el$8 = _el$7.firstChild, _el$9 = _el$6.nextSibling, _el$14 = _el$5.nextSibling, _el$15 = _el$14.firstChild, _el$16 = _el$15.firstChild, _el$17 = _el$16.nextSibling, _el$18 = _el$17.firstChild, _el$19 = _el$18.firstChild, _el$20 = _el$18.nextSibling, _el$21 = _el$20.firstChild;
+    insert(_el$3, createComponent(Index, {
+      get each() {
+        return Array.from({
+          length: store.settings.cycle.cycleDuration
+        });
+      },
+      children: () => _tmpl$5()
+    }));
+    insert(_el$7, () => postfixOrdinal(getDayOfTheCycle(store, store.currentDate) + 1), _el$8);
+    insert(_el$9, createComponent(Switch, {
       get fallback() {
         return [(() => {
-          var _el$20 = _tmpl$$2(), _el$21 = _el$20.firstChild;
-          insert(_el$20, () => getDaysUntilCycleCompletes(store, store.currentDate), _el$21);
-          insert(_el$20, () => postfixCardinal(getDaysUntilCycleCompletes(store, store.currentDate), "day"), null);
-          return _el$20;
-        })(), _tmpl$5()];
+          var _el$23 = _tmpl$$2(), _el$24 = _el$23.firstChild;
+          insert(_el$23, () => getDaysUntilCycleCompletes(store, store.currentDate), _el$24);
+          insert(_el$23, () => postfixCardinal(getDaysUntilCycleCompletes(store, store.currentDate), "day"), null);
+          return _el$23;
+        })(), _tmpl$6()];
       },
       get children() {
         return [createComponent(Match, {
@@ -4329,10 +4341,10 @@ function Home() {
           },
           get children() {
             return [(() => {
-              var _el$8 = _tmpl$$2(), _el$9 = _el$8.firstChild;
-              insert(_el$8, () => store.settings.cycle.periodDuration - dayOfPeriod(store, store.currentDate), _el$9);
-              insert(_el$8, () => postfixCardinal(store.settings.cycle.periodDuration - dayOfPeriod(store, store.currentDate), "day"), null);
-              return _el$8;
+              var _el$0 = _tmpl$$2(), _el$1 = _el$0.firstChild;
+              insert(_el$0, () => store.settings.cycle.periodDuration - dayOfPeriod(store, store.currentDate), _el$1);
+              insert(_el$0, () => postfixCardinal(store.settings.cycle.periodDuration - dayOfPeriod(store, store.currentDate), "day"), null);
+              return _el$0;
             })(), _tmpl$2()];
           }
         }), createComponent(Match, {
@@ -4341,28 +4353,30 @@ function Home() {
           },
           get children() {
             return [(() => {
-              var _el$1 = _tmpl$$2(), _el$10 = _el$1.firstChild;
-              insert(_el$1, () => store.settings.cycle.ovulationDuration - dayOfOvulation(store, store.currentDate), _el$10);
-              insert(_el$1, () => postfixCardinal(store.settings.cycle.ovulationDuration - dayOfOvulation(store, store.currentDate), "day"), null);
-              return _el$1;
+              var _el$11 = _tmpl$$2(), _el$12 = _el$11.firstChild;
+              insert(_el$11, () => store.settings.cycle.ovulationDuration - dayOfOvulation(store, store.currentDate), _el$12);
+              insert(_el$11, () => postfixCardinal(store.settings.cycle.ovulationDuration - dayOfOvulation(store, store.currentDate), "day"), null);
+              return _el$11;
             })(), _tmpl$3()];
           }
         })];
       }
     }));
-    _el$14.$$click = () => modals.cycleStart.modal()?.show();
+    _el$16.$$click = () => modals.cycleStart.modal()?.show();
     createRenderEffect((_p$) => {
-      var _v$ = styles$3.home, _v$2 = `${svgHeight()}px`, _v$3 = createGradient(), _v$4 = styles$3.gradient, _v$5 = styles$3.main, _v$6 = styles$3.statement, _v$7 = styles$3["cycle-button-container"], _v$8 = styles$3["cycle-button"], _v$9 = halfCirclePath(60, 60, 40), _v$0 = styles$3["text-path"];
+      var _v$ = styles$3.home, _v$2 = `${svgHeight()}px`, _v$3 = styles$3.timeline, _v$4 = styles$3.ruler, _v$5 = createGradient(), _v$6 = styles$3.gradient, _v$7 = styles$3.main, _v$8 = styles$3.statement, _v$9 = styles$3["cycle-button-container"], _v$0 = styles$3["cycle-button"], _v$1 = halfCirclePath(60, 60, 40), _v$10 = styles$3["text-path"];
       _v$ !== _p$.e && className(_el$, _p$.e = _v$);
       _v$2 !== _p$.t && setStyleProperty(_el$, "--svg-height", _p$.t = _v$2);
-      _v$3 !== _p$.a && setStyleProperty(_el$2, "background", _p$.a = _v$3);
-      _v$4 !== _p$.o && className(_el$2, _p$.o = _v$4);
-      _v$5 !== _p$.i && className(_el$3, _p$.i = _v$5);
-      _v$6 !== _p$.n && className(_el$7, _p$.n = _v$6);
-      _v$7 !== _p$.s && className(_el$13, _p$.s = _v$7);
-      _v$8 !== _p$.h && className(_el$14, _p$.h = _v$8);
-      _v$9 !== _p$.r && setAttribute(_el$17, "d", _p$.r = _v$9);
-      _v$0 !== _p$.d && setAttribute(_el$19, "class", _p$.d = _v$0);
+      _v$3 !== _p$.a && className(_el$2, _p$.a = _v$3);
+      _v$4 !== _p$.o && className(_el$3, _p$.o = _v$4);
+      _v$5 !== _p$.i && setStyleProperty(_el$4, "background", _p$.i = _v$5);
+      _v$6 !== _p$.n && className(_el$4, _p$.n = _v$6);
+      _v$7 !== _p$.s && className(_el$5, _p$.s = _v$7);
+      _v$8 !== _p$.h && className(_el$9, _p$.h = _v$8);
+      _v$9 !== _p$.r && className(_el$15, _p$.r = _v$9);
+      _v$0 !== _p$.d && className(_el$16, _p$.d = _v$0);
+      _v$1 !== _p$.l && setAttribute(_el$19, "d", _p$.l = _v$1);
+      _v$10 !== _p$.u && setAttribute(_el$21, "class", _p$.u = _v$10);
       return _p$;
     }, {
       e: void 0,
@@ -4374,7 +4388,9 @@ function Home() {
       s: void 0,
       h: void 0,
       r: void 0,
-      d: void 0
+      d: void 0,
+      l: void 0,
+      u: void 0
     });
     return _el$;
   })();
