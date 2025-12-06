@@ -4568,7 +4568,7 @@ function App() {
     currentDate: normalizeDate(/* @__PURE__ */ new Date())
   }), {
     storage: localStorage,
-    name: "cirkel-yolo",
+    name: "cirkel",
     deserialize(json) {
       const data = JSON.parse(json);
       return {
@@ -4591,10 +4591,10 @@ function App() {
       get children() {
         return [createComponent(modals.menu.Modal, {}), createComponent(modals.cycleStart.Modal, {}), createComponent(Router, {
           get url() {
-            return "./";
+            return "cirkel";
           },
           get base() {
-            return "./";
+            return "cirkel";
           },
           root: (props) => {
             const transition = function(fnThatChangesTheDOM) {
