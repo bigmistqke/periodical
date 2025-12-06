@@ -10,4 +10,5 @@ body {
 * {
   -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
+  overscroll-behavior-y: none;
 }

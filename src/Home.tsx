@@ -16,7 +16,7 @@ const BUTTON_SIZE = 80
 
 export function Home() {
   const { store } = useStore()
-  const svgHeight = createMemo(() => (bounds().height / 16) * 5)
+  const svgHeight = createMemo(() => (bounds().height / 64) * 19)
 
   function toPercentageModulo(value: number) {
     return ((value / store.settings.cycle.cycleDuration) * 100) % 100
@@ -51,6 +51,30 @@ export function Home() {
     return stops.map(([color, percentage]) => [color, `${percentage}%`])
   }
 
+  function circlePath(cx: number, cy: number, r: number) {
+    return (
+      'M ' +
+      cx +
+      ' ' +
+      cy +
+      ' m -' +
+      r +
+      ', 0 a ' +
+      r +
+      ',' +
+      r +
+      ' 0 1,1 ' +
+      r * 2 +
+      ',0 a ' +
+      r +
+      ',' +
+      r +
+      ' 0 1,1 -' +
+      r * 2 +
+      ',0'
+    )
+  }
+
   function createGradient() {
     return `linear-gradient(to right, ${createGradientStops()
       .map(arr => arr.join(' '))
@@ -77,9 +101,32 @@ export function Home() {
         <button class={styles['cycle-button']} onClick={() => modals.cycleStart.modal()?.show()} />
         <svg
           width={bounds().width}
-          height={svgHeight() + BUTTON_SIZE / 2}
-          viewBox={`0 ${BUTTON_SIZE / -2} ${bounds().width} ${svgHeight()}`}
+          height={svgHeight() + BUTTON_SIZE}
+          viewBox={`0 -${BUTTON_SIZE / 2} ${bounds().width} ${svgHeight()}`}
         >
+          <defs>
+            <path
+              fill-rule="evenodd"
+              id="MyPath"
+              d={circlePath(bounds().width / 2, 0, (4 * BUTTON_SIZE) / 5)}
+              stroke="white"
+            />
+          </defs>
+
+          <text>
+            <textPath
+              class={styles['text-path']}
+              href="#MyPath"
+              stroke="white"
+              method="stretch"
+              startOffset={20}
+              spacing="auto"
+              letter-spacing={10}
+              font-size-adjust={20}
+            >
+              a new cycle
+            </textPath>
+          </text>
           <line
             x1={0}
             x2={bounds().width}

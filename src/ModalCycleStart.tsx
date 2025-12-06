@@ -2,6 +2,7 @@ import { mergeRefs } from '@solid-primitives/refs'
 import { createSignal } from 'solid-js'
 import { produce } from 'solid-js/store'
 import { Modal, ModalProps } from './components/Modal'
+import styles from './ModalCycleStart.module.css'
 import { useStore } from './StoreContext'
 import { addDays, formatRelativeDay, normalizeDate } from './utils'
 
@@ -15,13 +16,7 @@ export function CycleStartModal(props: Omit<ModalProps, 'children'>) {
       ref={mergeRefs(setModal, props.ref)}
       onClose={() => setDay(0)}
       closeSlot={
-        <div
-          style={{
-            display: 'grid',
-            'grid-template-columns': 'repeat(2, 1fr)',
-            height: 'var(--size-row)',
-          }}
-        >
+        <div class={styles.buttons}>
           <Modal.Button onClick={() => modal()?.close()}>cancel</Modal.Button>
           <Modal.Button
             onClick={() => {
