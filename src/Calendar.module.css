@@ -53,7 +53,7 @@
     opacity: 0.65;
     padding-bottom: calc(var(--margin) / 2);
     width: 2rem;
-    font-size: 0.75rem;
+    font-size: var(--size-xxs-font);
     line-height: 1rem;
     font-weight: inherit;
     vertical-align: bottom;
@@ -79,8 +79,8 @@
     color: inherit;
     position: relative;
     margin: var(--margin);
-    font-size: var(--size-xs-font);
-    line-height: var(--size-xs-font);
+    font-size: var(--size-xxs-font);
+    line-height: var(--size-xxs-font);
     background-color: var(--color-bg-calendar);
 
     & > .cell {
@@ -115,8 +115,8 @@
       bottom: -1px;
       left: -1px;
       padding: var(--size-radius);
-      font-size: var(--size-xs-font);
-      line-height: var(--size-xs-font);
+      font-size: var(--size-xxs-font);
+      line-height: var(--size-xxs-font);
       color: var(--color-middle);
     }
 

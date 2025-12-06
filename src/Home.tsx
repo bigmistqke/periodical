@@ -128,7 +128,7 @@ export function Home() {
               href="#MyPath"
               stroke="white"
               startOffset="25px"
-              textLength="155px"
+              textLength="160px"
             >
               a new cycle
             </textPath>
