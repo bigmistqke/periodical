@@ -2718,7 +2718,7 @@ function A(props) {
 
 function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else if("object"==typeof e)if(Array.isArray(e)){var o=e.length;for(t=0;t<o;t++)e[t]&&(f=r(e[t]))&&(n&&(n+=" "),n+=f);}else for(f in e)e[f]&&(n&&(n+=" "),n+=f);return n}function clsx(){for(var e,t,f=0,n="",o=arguments.length;f<o;f++)(e=arguments[f])&&(t=r(e))&&(n&&(n+=" "),n+=t);return n}
 
-const page = "_page_1nskw_1";
+const page = "_page_18rmy_1";
 const styles$5 = {
 	page: page
 };
@@ -3584,8 +3584,8 @@ const styles$4 = {
 	past: past
 };
 
-const dark = "_dark_1lomq_40";
-const light = "_light_1lomq_64";
+const dark = "_dark_19yvc_46";
+const light = "_light_19yvc_70";
 const theme = {
 	dark: dark,
 	light: light
@@ -3902,16 +3902,16 @@ function Calendar() {
   })();
 }
 
-const overview = "_overview_6hm62_1";
-const gradient = "_gradient_6hm62_12";
-const main = "_main_6hm62_16";
-const statement = "_statement_6hm62_72";
+const overview = "_overview_1w9rb_1";
+const gradient = "_gradient_1w9rb_12";
+const main = "_main_1w9rb_16";
+const statement = "_statement_1w9rb_74";
 const styles$3 = {
 	overview: overview,
 	gradient: gradient,
 	main: main,
-	"cycle-button": "_cycle-button_6hm62_48",
-	"text-path": "_text-path_6hm62_64",
+	"cycle-button": "_cycle-button_1w9rb_50",
+	"text-path": "_text-path_1w9rb_66",
 	statement: statement
 };
 
@@ -4013,16 +4013,16 @@ function FiArrowLeft(props) {
       }, props)
   }
 
-const modal = "_modal_1hnn6_1";
-const icon = "_icon_1hnn6_90";
-const section = "_section_1hnn6_115";
-const button = "_button_1hnn6_99";
+const modal = "_modal_5dpsp_1";
+const icon = "_icon_5dpsp_91";
+const section = "_section_5dpsp_116";
+const button = "_button_5dpsp_100";
 const styles$1 = {
 	modal: modal,
-	"binary-option": "_binary-option_1hnn6_70",
-	"label-container": "_label-container_1hnn6_79",
+	"binary-option": "_binary-option_5dpsp_71",
+	"label-container": "_label-container_5dpsp_80",
 	icon: icon,
-	"button-container": "_button-container_1hnn6_99",
+	"button-container": "_button-container_5dpsp_100",
 	section: section,
 	button: button
 };
@@ -4451,11 +4451,11 @@ function VsMenu(props) {
       }, props)
   }
 
-const menu = "_menu_vahlv_31";
-const active = "_active_vahlv_46";
+const menuModalButton = "_menuModalButton_1gj74_34";
+const active = "_active_1gj74_48";
 const styles = {
-	"navigation-container": "_navigation-container_vahlv_1",
-	menu: menu,
+	"navigation-container": "_navigation-container_1gj74_1",
+	menuModalButton: menuModalButton,
 	active: active
 };
 
@@ -4481,7 +4481,7 @@ function Navigation(props) {
     _el$5.$$click = () => props.menu.show();
     insert(_el$5, createComponent(VsMenu, {}), null);
     createRenderEffect((_p$) => {
-      var _v$ = styles["navigation-container"], _v$2 = styles.menu;
+      var _v$ = styles["navigation-container"], _v$2 = styles.menuModalButton;
       _v$ !== _p$.e && className(_el$, _p$.e = _v$);
       _v$2 !== _p$.t && className(_el$5, _p$.t = _v$2);
       return _p$;
