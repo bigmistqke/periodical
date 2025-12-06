@@ -32,6 +32,8 @@ export default function () {
         <modals.menu.Modal />
         <modals.cycleStart.Modal />
         <Router
+          url="./cirkel"
+          base="/cirkel"
           root={props => {
             const transition = function (fnThatChangesTheDOM: ViewTransitionUpdateCallback) {
               // In case the API is not yet supported
