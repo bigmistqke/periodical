@@ -4293,7 +4293,7 @@ const modals = createModals({
   cycleStart: CycleStartModal
 });
 
-var _tmpl$$2 = /* @__PURE__ */ template(`<em> `), _tmpl$2 = /* @__PURE__ */ template(`<div>until your period ends`), _tmpl$3 = /* @__PURE__ */ template(`<div>until day of your ovulation`), _tmpl$4 = /* @__PURE__ */ template(`<div><div><div></div><div></div></div><section><section><em> day</em><div>of your cycle</div></section><section></section></section><section><div><button></button><svg width=120 height=120 viewBox="0 0 120 120"><defs><path fill-rule=evenodd id=MyPath stroke=white></path></defs><text><textPath href=#MyPath stroke=white startOffset=25px textLength=90px>a new cycle`), _tmpl$5 = /* @__PURE__ */ template(`<div>`), _tmpl$6 = /* @__PURE__ */ template(`<div>until your cycle is completed`);
+var _tmpl$$2 = /* @__PURE__ */ template(`<em> `), _tmpl$2 = /* @__PURE__ */ template(`<div>until your period ends`), _tmpl$3 = /* @__PURE__ */ template(`<div>until day of your ovulation`), _tmpl$4 = /* @__PURE__ */ template(`<div><div><div></div><div></div></div><section><section><em> day</em><div>of your cycle</div></section><section></section></section><section><div><button></button><svg width=120 height=120 viewBox="0 0 120 120"><defs><path fill-rule=evenodd id=MyPath stroke=white></path></defs><text><textPath href=#MyPath stroke=white startOffset=25px textLength=85px>a new cycle`), _tmpl$5 = /* @__PURE__ */ template(`<div>`), _tmpl$6 = /* @__PURE__ */ template(`<div>until your cycle is completed`);
 const [bounds, setBounds] = createSignal(document.body.getBoundingClientRect());
 new ResizeObserver(() => setBounds(document.body.getBoundingClientRect())).observe(document.body);
 function Home() {
