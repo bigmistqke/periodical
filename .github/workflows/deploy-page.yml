@@ -28,7 +28,7 @@ jobs:
         run: pnpm install
 
       - name: Build dev
-        run: VITE_BASE_URL=cirkel pnpm build
+        run: VITE_BASE_URL=cirkel/ pnpm build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
