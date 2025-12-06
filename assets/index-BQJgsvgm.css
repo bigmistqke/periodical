@@ -386,28 +386,28 @@ button {
   font-family: var(--font-family);
   font-optical-sizing: auto;
 }
-._overview_14ji2_1 {
+._overview_1bvch_1 {
   overflow: hidden;
   display: grid;
   grid-template-rows: calc(var(--size-row) * 2) 1fr var(--svg-height);
   height: 100%;
 }
 
-._overview_14ji2_1 section {
+._overview_1bvch_1 section {
     position: relative;
   }
 
-._gradient_14ji2_12 {
+._gradient_1bvch_12 {
   box-shadow: 0px 0px 25px var(--color-bg);
 }
 
-._main_14ji2_16 {
+._main_1bvch_16 {
   display: grid;
   align-content: center;
   font-size: var(--size-s-font);
 }
 
-._main_14ji2_16 > section {
+._main_1bvch_16 > section {
     display: grid;
     padding-inline: calc(var(--margin) * 3);
     gap: var(--margin);
@@ -417,29 +417,29 @@ button {
     justify-content: center;
   }
 
-:is(._main_14ji2_16 > section):first-child {
+:is(._main_1bvch_16 > section):first-child {
       border-bottom: 1px solid var(--color-border);
       padding-bottom: calc(var(--margin) * 3);
       margin-bottom: calc(var(--margin) * 3);
     }
 
-:is(._main_14ji2_16 > section) > em {
+:is(._main_1bvch_16 > section) > em {
       font-size: var(--size-xl-font);
       line-height: var(--size-xl-font);
       font-style: normal;
     }
 
-:is(._main_14ji2_16 > section) > div {
+:is(._main_1bvch_16 > section) > div {
       text-wrap: balance;
     }
 
-._cycle-button_14ji2_48 {
+._cycle-button_1bvch_48 {
   position: absolute;
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   left: 50vw;
-  top: 40px;
-  transform: translateX(-50%);
+  top: 80px;
+  transform: translate(-50%, -50%);
   padding: 2px;
   display: grid;
   background: var(--color-period);
@@ -449,15 +449,15 @@ button {
   box-shadow: 0px 0px 50px var(--color-bg);
 }
 
-._text-path_14ji2_64 {
-  font-size: var(--size-s-font);
+._text-path_1bvch_64 {
+  font-size: var(--size-xs-font);
   letter-spacing: 6.5px;
   font-weight: 100;
   text-align: center;
   stroke: var(--color-front);
 }
 
-._statement_14ji2_72 > div {
+._statement_1bvch_72 > div {
     text-wrap: balance;
   }
 ._buttons_1dl42_1 {

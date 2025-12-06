@@ -3907,16 +3907,16 @@ function Calendar() {
   })();
 }
 
-const overview = "_overview_14ji2_1";
-const gradient = "_gradient_14ji2_12";
-const main = "_main_14ji2_16";
-const statement = "_statement_14ji2_72";
+const overview = "_overview_1bvch_1";
+const gradient = "_gradient_1bvch_12";
+const main = "_main_1bvch_16";
+const statement = "_statement_1bvch_72";
 const styles$3 = {
 	overview: overview,
 	gradient: gradient,
 	main: main,
-	"cycle-button": "_cycle-button_14ji2_48",
-	"text-path": "_text-path_14ji2_64",
+	"cycle-button": "_cycle-button_1bvch_48",
+	"text-path": "_text-path_1bvch_64",
 	statement: statement
 };
 
