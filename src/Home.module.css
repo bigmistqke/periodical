@@ -47,11 +47,11 @@
 
 .cycle-button {
   position: absolute;
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   left: 50vw;
-  top: 40px;
-  transform: translateX(-50%);
+  top: 80px;
+  transform: translate(-50%, -50%);
   padding: 2px;
   display: grid;
   background: var(--color-period);
@@ -62,7 +62,7 @@
 }
 
 .text-path {
-  font-size: var(--size-s-font);
+  font-size: var(--size-xs-font);
   letter-spacing: 6.5px;
   font-weight: 100;
   text-align: center;

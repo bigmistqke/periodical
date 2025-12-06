@@ -83,7 +83,7 @@ export function Calendar() {
                                 fallback={<th />}
                               >
                                 <CorvuCalendar.HeadCell abbr={formatWeekdayLong(weekday())}>
-                                  {formatWeekdayShort(weekday())}
+                                  {formatWeekdayShort(weekday()).toLowerCase()}
                                 </CorvuCalendar.HeadCell>
                               </Show>
                             )}
@@ -112,7 +112,7 @@ export function Calendar() {
                                           fallback={<span class={styles.cell} />}
                                         >
                                           <CorvuCalendar.HeadCell abbr={formatWeekdayLong(day())}>
-                                            {formatWeekdayShort(day())}
+                                            {formatWeekdayShort(day()).toLowerCase()}
                                           </CorvuCalendar.HeadCell>
                                         </Show>
                                       }

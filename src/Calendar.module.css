@@ -49,10 +49,17 @@
     border-collapse: collapse;
   }
 
-  & td {
-    border-collapse: collapse;
+  & th {
+    opacity: 0.65;
+    padding-bottom: calc(var(--margin) / 2);
+    width: 2rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: inherit;
     vertical-align: bottom;
-    inset: -1px;
+    text-align: left;
+    letter-spacing: 1px;
+    padding-inline: calc(var(--margin) / 2);
   }
 
   & tr > span,
@@ -61,16 +68,10 @@
     height: var(--size-row);
   }
 
-  & th {
-    opacity: 0.65;
-    padding-bottom: var(--margin);
-    width: 2rem;
-    font-size: 0.75rem;
-    line-height: 1rem;
-    font-weight: inherit;
+  & td {
+    border-collapse: collapse;
     vertical-align: bottom;
-    text-align: left;
-    padding-inline: calc(var(--margin) / 2);
+    inset: -1px;
   }
 
   & [data-corvu-calendar-cell] {
@@ -100,7 +101,7 @@
         right: 0px;
         z-index: var(--z-indicator);
         align-self: end;
-        height: var(--margin);
+        height: calc(var(--margin) / 2);
         position: absolute;
       }
     }
@@ -113,7 +114,7 @@
       right: 0px;
       bottom: -1px;
       left: -1px;
-      padding: var(--margin);
+      padding: var(--size-radius);
       font-size: var(--size-xs-font);
       line-height: var(--size-xs-font);
       color: var(--color-middle);
@@ -150,13 +151,11 @@
     /* Round the top left radius of the first day of period/ovulation */
     &[data-start] .indicator {
       border-top-left-radius: var(--size-radius);
-      margin-left: -1px;
     }
 
     /* Round the top right radius of the last day of period/ovulation */
     &[data-end] .indicator {
       border-top-right-radius: var(--size-radius);
-      margin-right: 0px;
     }
 
     &[data-phase='period'] .indicator {
