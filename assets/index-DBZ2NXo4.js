@@ -3586,11 +3586,11 @@ const styles$4 = {
 	past: past
 };
 
-const dark = "_dark_1b6ue_30";
-const light = "_light_1b6ue_77";
+const dark = "_dark_17dxk_30";
+const light = "_light_17dxk_74";
 const theme = {
 	dark: dark,
-	"deep-purple": "_deep-purple_1b6ue_52",
+	"deep-purple": "_deep-purple_17dxk_52",
 	light: light
 };
 
